@@ -2,10 +2,11 @@
     "require": {
         "slim/slim": "^2.6"
     },
-  	"autoload": {
-    	"classmap": [
-      	"app/controllers",
-      	"lib"
-    	]
-  	}    
+    "autoload": {
+      "psr-4": {
+        "Controllers\\": "app/controllers/",
+        "Lib\\": "lib/",
+        "Helpers\\": "app/helpers/"
+        }
+    }
 }

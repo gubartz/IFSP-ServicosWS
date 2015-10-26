@@ -1,6 +1,7 @@
 <?php
+namespace Controllers;
 use Slim\Slim as Slim;
-use lib\DB;
+use Lib\DB;
 
 class BaseController {
 
@@ -11,9 +12,5 @@ class BaseController {
     $this->app = Slim::getInstance();
     $db        = new DB();
     $this->db  = $db->connect();
-  }
-
-  public function index() {
-    echo json_encode(array('teste', 'teste2'));
   }
 }

@@ -1,4 +1,4 @@
 <?php
-$app->get("/", "BaseController:index");
+$app->get("/", "Controllers\BaseController:index");
 
-$app->get("/disciplina", "DisciplinaController:index");
+$app->get("/disciplina", "Controllers\DisciplinaController:index");
