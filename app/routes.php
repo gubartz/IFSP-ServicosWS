@@ -1,4 +1,6 @@
 <?php
-$app->get("/", "Controllers\BaseController:index");
+$app->post("/", "Controllers\BaseController:index");
 
-$app->get("/disciplina", "Controllers\DisciplinaController:index");
+$app->post("/disciplina", "Controllers\DisciplinaController:index");
+
+$app->post("/usuario/login", "Controllers\UsuarioController:login");

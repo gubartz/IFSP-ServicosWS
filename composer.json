@@ -3,10 +3,11 @@
         "slim/slim": "^2.6"
     },
     "autoload": {
-      "psr-4": {
-        "Controllers\\": "app/controllers/",
-        "Lib\\": "lib/",
-        "Helpers\\": "app/helpers/"
-        }
+        "classmap": [
+              "app/controllers",
+              "app/auth",
+              "app/helpers",
+              "lib"
+            ]
     }
 }

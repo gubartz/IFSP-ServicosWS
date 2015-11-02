@@ -1,0 +1,13 @@
+{
+    "require": {
+        "slim/slim": "^2.6"
+    },
+    "autoload": {
+      "psr-4": {
+        "Controllers\\": "app/controllers/",
+        "Lib\\": "lib/",
+        "Helpers\\": "app/helpers/",
+        "Auth\\": "app/Auth/"
+        }
+    }
+}
