@@ -15,8 +15,8 @@ class BaseController {
     $this->db      = $db->connect();
     $this->headers = getallheaders();
 
-    if(isset($this->headers['usuario'])){
-    	$this->idUsuario = $this->headers['usuario'];	
+    if(isset($this->headers['Usuario'])){
+    	$this->idUsuario = $this->headers['Usuario'];	
     }else{
     	$this->idUsuario = null;
     }
