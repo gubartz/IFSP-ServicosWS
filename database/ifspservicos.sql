@@ -40,7 +40,8 @@ CREATE TABLE usuario(
     celular         varchar(15),
     email           varchar(50),
     ra              varchar(9)  NOT NULL,
-    senha           varchar(50) NOT NULL
+    senha           varchar(50) NOT NULL,
+    token           varchar(1000)
 );
 
 CREATE TABLE tipo_usuario(
@@ -180,7 +181,8 @@ INSERT INTO usuario VALUES( 1, #id_usuario
                             '(19) 98173-7172',
                             'guuuilp@gmail.com',
                             '132017-3',
-                            '123456' );
+                            '123456',
+                            null );
 
 INSERT INTO usuario VALUES( 2, #id_usuario
                             2, #id_tipo_usuario
@@ -192,7 +194,8 @@ INSERT INTO usuario VALUES( 2, #id_usuario
                             '(19) 98433-7122',
                             'gubartz@ifsp.edu.br',
                             '162912-1',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 3, #id_usuario
                             2, #id_tipo_usuario
@@ -204,7 +207,8 @@ INSERT INTO usuario VALUES( 3, #id_usuario
                             '(19) 98433-7124',
                             'andre.constantino@gmail.com',
                             '162912-2',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 4, #id_usuario
                             2, #id_tipo_usuario
@@ -216,7 +220,8 @@ INSERT INTO usuario VALUES( 4, #id_usuario
                             '(19) 98433-7126',
                             'carlos.rsantos@ifsp.edu.br',
                             '162912-3',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 5, #id_usuario
                             2, #id_tipo_usuario
@@ -228,7 +233,8 @@ INSERT INTO usuario VALUES( 5, #id_usuario
                             '(19) 98433-7128',
                             'daianetomazeti@gmail.com',
                             '162912-4',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 6, #id_usuario
                             2, #id_tipo_usuario
@@ -240,7 +246,8 @@ INSERT INTO usuario VALUES( 6, #id_usuario
                             '(19) 98433-7121',
                             'edgar.noda@ifsp.edu.br',
                             '162912-5',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 7, #id_usuario
                             2, #id_tipo_usuario
@@ -252,7 +259,8 @@ INSERT INTO usuario VALUES( 7, #id_usuario
                             '(19) 98433-7122',
                             'leandro.ledel@gmail.com',
                             '162912-6',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 8, #id_usuario
                             2, #id_tipo_usuario
@@ -264,7 +272,8 @@ INSERT INTO usuario VALUES( 8, #id_usuario
                             '(19) 98433-7129',
                             'rodolfo.oliveira@ifsp.edu.br',
                             '162912-7',
-                            '123456' );
+                            '123456' ,
+                            null);
 
 INSERT INTO usuario VALUES( 9, #id_usuario
                             2, #id_tipo_usuario
@@ -276,7 +285,8 @@ INSERT INTO usuario VALUES( 9, #id_usuario
                             '(19) 98433-7123',
                             'fersambi@gmail.com',
                             '162912-8',
-                            '123456' );
+                            '123456', 
+                            null);
 
 INSERT INTO turma VALUES( 1, 'N135', 2015, 1 );
 INSERT INTO turma VALUES( 2, 'N146', 2015, 2 );
@@ -505,7 +515,7 @@ CREATE OR REPLACE VIEW vrel_situacao_aluno_disciplina AS
          u.id_tipo_usuario = 1; #id_tipo_usuario = 1 = aluno
 
 CREATE OR REPLACE VIEW vmedia_aluno_disciplina AS
-  SELECT   id_aluno,
+  SELECT   id_usuario,
            nome_aluno,
            sum(nota * peso) media,
            nome_disciplina,
