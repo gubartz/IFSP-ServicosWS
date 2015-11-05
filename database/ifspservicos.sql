@@ -428,22 +428,22 @@ INSERT INTO rel_situacao_aluno_disciplina VALUES ( 9, 3, 1, 9 );
 
 #Criando as views, de forma a trazer a informação de uma forma visivelmente útil
 CREATE OR REPLACE VIEW vrel_aluno_turma_curso AS
-  select u.nome   nome_aluno,
+  SELECT u.nome   nome_aluno,
          t.codigo codigo_turma,
          c.titulo nome_curso
-  from   usuario              u,
-       turma              t,
-         curso        c,
-       rel_aluno_turma      rat,
+  FROM   usuario              u,
+         turma                t,
+         curso                c,
+         rel_aluno_turma      rat,
          rel_turma_disciplina rtd,
          rel_disciplina_curso rdc
-  where  u.id_tipo_usuario = 1        and
-       u.id_usuario      = rat.id_usuario and
-         rat.id_turma      = t.id_turma     and
-         rtd.id_turma      = t.id_turma     and
-         rdc.id_disciplina = rtd.id_turma   and
+  WHERE  u.id_tipo_usuario = 1              AND
+         u.id_usuario      = rat.id_usuario AND
+         rat.id_turma      = t.id_turma     AND
+         rtd.id_turma      = t.id_turma     AND
+         rdc.id_disciplina = rtd.id_turma   AND
          rdc.id_curso      = c.id_curso
-  group by nome, codigo, titulo;
+  GROUP BY nome, codigo, titulo;
 
 CREATE OR REPLACE VIEW vrel_disciplina_curso AS
   SELECT d.titulo nome_disciplina,
