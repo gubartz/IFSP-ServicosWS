@@ -8,6 +8,7 @@ class BaseController {
   protected $db;
   protected $headers;
   protected $idUsuario;
+  protected $idDisciplina;
 
   function __construct() {
     $this->app     = Slim::getInstance();
@@ -19,6 +20,12 @@ class BaseController {
     	$this->idUsuario = $this->headers['Usuario'];	
     }else{
     	$this->idUsuario = null;
+    }
+
+    if(isset($this->headers['Disciplina'])){
+      $this->idDisciplina = $this->headers['Disciplina']; 
+    }else{
+      $this->idDisciplina = null;
     }
   }
 }

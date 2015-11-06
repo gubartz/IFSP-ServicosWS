@@ -65,8 +65,10 @@ CREATE TABLE disciplina(
 
 CREATE TABLE avaliacao(
   id_avaliacao int(15) AUTO_INCREMENT PRIMARY KEY,
-  nota         float(4,2) NOT NULL,
-  peso         float(4,2) NOT NULL
+  data         date        NOT NULL,
+  descricao    varchar(50) NOT NULL,
+  nota         float(4,2)  NOT NULL,
+  peso         float(4,2)  NOT NULL
 );
 
 CREATE TABLE situacao(
@@ -168,7 +170,7 @@ INSERT INTO curso VALUES( null,
                           'Informática',
                           6 );
 
-INSERT INTO tipo_usuario VALUES( 1, 'Aluno' );
+INSERT INTO tipo_usuario VALUES( 1, 'Aluno'     );
 INSERT INTO tipo_usuario VALUES( 2, 'Professor' );
 
 INSERT INTO usuario VALUES( 1, #id_usuario
@@ -195,7 +197,7 @@ INSERT INTO usuario VALUES( 2, #id_usuario
                             'gubartz@ifsp.edu.br',
                             '162912-1',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 3, #id_usuario
                             2, #id_tipo_usuario
@@ -208,7 +210,7 @@ INSERT INTO usuario VALUES( 3, #id_usuario
                             'andre.constantino@gmail.com',
                             '162912-2',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 4, #id_usuario
                             2, #id_tipo_usuario
@@ -221,7 +223,7 @@ INSERT INTO usuario VALUES( 4, #id_usuario
                             'carlos.rsantos@ifsp.edu.br',
                             '162912-3',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 5, #id_usuario
                             2, #id_tipo_usuario
@@ -234,7 +236,7 @@ INSERT INTO usuario VALUES( 5, #id_usuario
                             'daianetomazeti@gmail.com',
                             '162912-4',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 6, #id_usuario
                             2, #id_tipo_usuario
@@ -247,7 +249,7 @@ INSERT INTO usuario VALUES( 6, #id_usuario
                             'edgar.noda@ifsp.edu.br',
                             '162912-5',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 7, #id_usuario
                             2, #id_tipo_usuario
@@ -260,7 +262,7 @@ INSERT INTO usuario VALUES( 7, #id_usuario
                             'leandro.ledel@gmail.com',
                             '162912-6',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 8, #id_usuario
                             2, #id_tipo_usuario
@@ -273,7 +275,7 @@ INSERT INTO usuario VALUES( 8, #id_usuario
                             'rodolfo.oliveira@ifsp.edu.br',
                             '162912-7',
                             '123456' ,
-                            null);
+                            null );
 
 INSERT INTO usuario VALUES( 9, #id_usuario
                             2, #id_tipo_usuario
@@ -292,53 +294,53 @@ INSERT INTO turma VALUES( 1, 'N135', 2015, 1 );
 INSERT INTO turma VALUES( 2, 'N146', 2015, 2 );
 
 #Matérias do primeiro semestre 2015
-INSERT INTO disciplina VALUES( 1, 'DW1A5', 'Desenvolvimento para Web I', 80 );
-INSERT INTO disciplina VALUES( 2, 'GTIA5', 'Gestão de Ti', 80 );
-INSERT INTO disciplina VALUES( 3, 'ENGA5', 'Engenharia de Software', 80 );
-INSERT INTO disciplina VALUES( 4, 'PR1A5', 'Projeto Integrado I', 80 );
+INSERT INTO disciplina VALUES( 1, 'DW1A5', 'Desenvolvimento para Web I'        , 80 );
+INSERT INTO disciplina VALUES( 2, 'GTIA5', 'Gestão de Ti'                      , 80 );
+INSERT INTO disciplina VALUES( 3, 'ENGA5', 'Engenharia de Software'            , 80 );
+INSERT INTO disciplina VALUES( 4, 'PR1A5', 'Projeto Integrado I'               , 80 );
 INSERT INTO disciplina VALUES( 5, 'SIGA5', 'Sistemas de Informações Gerenciais', 80 );
 
 #Matérias do segundo semestre
-INSERT INTO disciplina VALUES( 6, 'DW2A6', 'Desenvolvimento Web II', 160 );
-INSERT INTO disciplina VALUES( 7, 'PI2A6', 'Projeto Integrado II', 160 );
+INSERT INTO disciplina VALUES( 6, 'DW2A6', 'Desenvolvimento Web II' , 160 );
+INSERT INTO disciplina VALUES( 7, 'PI2A6', 'Projeto Integrado II'   , 160 );
 INSERT INTO disciplina VALUES( 8, 'SEGA6', 'Segurança da Informação', 160 );
-INSERT INTO disciplina VALUES( 9, 'TPAA6', 'Tópicos Avançados', 160 );
+INSERT INTO disciplina VALUES( 9, 'TPAA6', 'Tópicos Avançados'      , 160 );
 
 #Notas de DW1 - Guilherme
-INSERT INTO avaliacao VALUES( 1, 7.25, 0.7 );
-INSERT INTO avaliacao VALUES( 2, 11.5, 0.3 );
+INSERT INTO avaliacao VALUES( 1, '2015-03-26', 'Prova 1', 7.25, 0.7 );
+INSERT INTO avaliacao VALUES( 2, '2015-06-29', 'Prova 2', 11.5, 0.3 );
 
 #Notas de ENG - Guilherme
-INSERT INTO avaliacao VALUES( 3, 9.25, 0.2 );
-INSERT INTO avaliacao VALUES( 4, 9.58, 0.3 );
-INSERT INTO avaliacao VALUES( 5, 6   , 0.2 );
-INSERT INTO avaliacao VALUES( 6, 0.3 , 0.3 );
+INSERT INTO avaliacao VALUES( 3, '2015-06-23', '2a Avaliação Escrita'             , 9.25, 0.2 );
+INSERT INTO avaliacao VALUES( 4, '2015-06-16', '2a Avaliação de Atividade Prática', 9.58, 0.3 );
+INSERT INTO avaliacao VALUES( 5, '2015-04-28', '1a Avaliação Escrita'             , 6   , 0.2 );
+INSERT INTO avaliacao VALUES( 6, '2015-04-14', '1a Avaliação de Atividade Prática', 0.3 , 0.3 );
 
 #Notas de GTI - Guilherme
-INSERT INTO avaliacao VALUES( 7 , 8.5, 0.15 );
-INSERT INTO avaliacao VALUES( 8 , 8.5, 0.2  );
-INSERT INTO avaliacao VALUES( 9 , 8.5, 0.3  );
-INSERT INTO avaliacao VALUES( 10, 3.5, 0.2  );
-INSERT INTO avaliacao VALUES( 11, 4  , 0.15 );
+INSERT INTO avaliacao VALUES( 7 , '2015-06-15', 'Média de seminários', 8.5, 0.15 );
+INSERT INTO avaliacao VALUES( 8 , '2015-06-22', 'Prova P2'           , 8.5, 0.2  );
+INSERT INTO avaliacao VALUES( 9 , '2015-06-29', 'Trabalho Final'     , 8.5, 0.3  );
+INSERT INTO avaliacao VALUES( 10, '2015-05-04', 'Prova 1'            , 3.5, 0.2  );
+INSERT INTO avaliacao VALUES( 11, '2015-06-15', 'Média de trabalhos' , 4  , 0.15 );
 
 #Notas PII - Guilherme
-INSERT INTO avaliacao VALUES( 12, 10, 1 );
+INSERT INTO avaliacao VALUES( 12, '2015-06-23', 'Prova 1', 10, 1 );
 
 #Notas SIGA5 - Guilherme
-INSERT INTO avaliacao VALUES( 13, 7.5, 0.25 );
-INSERT INTO avaliacao VALUES( 14, 8.5, 0.25 );
-INSERT INTO avaliacao VALUES( 15, 8, 0.25 );
-INSERT INTO avaliacao VALUES( 16, 9, 0.25 );
+INSERT INTO avaliacao VALUES( 13, '2015-06-26', 'Trabalho II' , 7.5, 0.25 );
+INSERT INTO avaliacao VALUES( 14, '2015-07-03', 'Avaliação II', 8.5, 0.25 );
+INSERT INTO avaliacao VALUES( 15, '2015-04-24', 'Trabalho I'  , 8  , 0.25 );
+INSERT INTO avaliacao VALUES( 16, '2015-04-24', 'Avaliação I' , 9  , 0.25 );
 
 #Notas ultimo semestre - Guilherme
-INSERT INTO avaliacao VALUES( 17, 10, 1 );
-INSERT INTO avaliacao VALUES( 18, 7, 1 );
-INSERT INTO avaliacao VALUES( 19, 8, 1 );
-INSERT INTO avaliacao VALUES( 20, 9, 1 );
+INSERT INTO avaliacao VALUES( 17, '2015-08-16', 'Prova 1', 10, 1 );
+INSERT INTO avaliacao VALUES( 18, '2015-09-21', 'Prova 1', 7, 1  );
+INSERT INTO avaliacao VALUES( 19, '2015-10-03', 'Prova 1', 8, 1  );
+INSERT INTO avaliacao VALUES( 20, '2015-11-05', 'Prova 1', 9, 1  );
 
-INSERT INTO situacao VALUES( 1, 'Aprovado' );
+INSERT INTO situacao VALUES( 1, 'Aprovado'  );
 INSERT INTO situacao VALUES( 2, 'Reprovado' );
-INSERT INTO situacao VALUES( 3, 'Em Curso' );
+INSERT INTO situacao VALUES( 3, 'Em Curso'  );
 
 INSERT INTO rel_aluno_turma VALUES( 1, 1, 1 );
 INSERT INTO rel_aluno_turma VALUES( 2, 2, 1 );
@@ -354,14 +356,14 @@ INSERT INTO rel_turma_disciplina VALUES( 7, 2, 7 );
 INSERT INTO rel_turma_disciplina VALUES( 8, 2, 8 );
 INSERT INTO rel_turma_disciplina VALUES( 9, 2, 9 );
 
-INSERT INTO rel_aluno_turmadisciplina VALUES( 1, 1, 1, 90 );
-INSERT INTO rel_aluno_turmadisciplina VALUES( 2, 1, 2, 100 );
-INSERT INTO rel_aluno_turmadisciplina VALUES( 3, 1, 3, 100 );
-INSERT INTO rel_aluno_turmadisciplina VALUES( 4, 1, 4, 90 );
-INSERT INTO rel_aluno_turmadisciplina VALUES( 5, 1, 5, 85 );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 1, 1, 1, 90   );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 2, 1, 2, 100  );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 3, 1, 3, 100  );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 4, 1, 4, 90   );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 5, 1, 5, 85   );
 INSERT INTO rel_aluno_turmadisciplina VALUES( 6, 1, 6, 91.5 );
 INSERT INTO rel_aluno_turmadisciplina VALUES( 7, 1, 7, 73.5 );
-INSERT INTO rel_aluno_turmadisciplina VALUES( 8, 1, 8, 100 );
+INSERT INTO rel_aluno_turmadisciplina VALUES( 8, 1, 8, 100  );
 INSERT INTO rel_aluno_turmadisciplina VALUES( 9, 1, 9, 92.5 );
 
 INSERT INTO rel_disciplina_curso VALUES ( 1, 1, 1 );
@@ -384,15 +386,15 @@ INSERT INTO rel_professor_disciplina VALUES ( 7, 5, 7 );
 INSERT INTO rel_professor_disciplina VALUES ( 8, 8, 8 );
 INSERT INTO rel_professor_disciplina VALUES ( 9, 2, 9 );
 
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 1, 1, 1 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 2, 2, 1 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 3, 3, 3 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 4, 4, 3 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 5, 5, 3 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 6, 6, 3 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 7, 7, 2 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 8, 8, 2 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 9, 9, 2 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 1, 1, 1   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 2, 2, 1   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 3, 3, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 4, 4, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 5, 5, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 6, 6, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 7, 7, 2   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 8, 8, 2   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 9, 9, 2   );
 INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 10, 10, 2 );
 INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 11, 11, 2 );
 INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 12, 12, 4 );
@@ -480,9 +482,9 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso AS
 CREATE OR REPLACE VIEW vrel_disciplina_curso AS
   SELECT d.titulo nome_disciplina,
          c.titulo nome_curso
-  FROM   rel_disciplina_curso  r,
-         disciplina            d,
-         curso                 c
+  FROM   rel_disciplina_curso r,
+         disciplina           d,
+         curso                c
   WHERE  r.id_disciplina = d.id_disciplina AND
          r.id_curso      = c.id_curso;
 
@@ -497,36 +499,40 @@ CREATE OR REPLACE VIEW vrel_professor_disciplina AS
          u.id_tipo_usuario = 2; #id_tipo_usuario = 2 = professor
 
 CREATE OR REPLACE VIEW vrel_avaliacaoturma_aluno AS
-  SELECT u.id_usuario    id_usuario,
-         u.nome          nome_aluno,
-         v.nota          nota,
-         v.peso          peso,
-         z.frequencia    frequencia,
-         d.id_turma      id_turma,
-         c.titulo        nome_disciplina,
-         d.codigo        codigo_turma
-  FROM   rel_avaliacaoturma_aluno       r,
-         rel_aluno_turmadisciplina      z,
-         rel_avaliacao_turmadisciplina  t,
-         rel_turma_disciplina           k,
-         avaliacao                      v,
-         turma                          d,
-         usuario                        u,
-         disciplina                     c
+  SELECT u.id_usuario                   id_usuario,
+         u.nome                         nome_aluno,
+         v.descricao                    descricao_avaliacao,
+         date_format(v.data,'%d/%m/%Y') data_avaliacao,
+         v.nota                         nota,
+         v.peso                         peso,
+         z.frequencia                   frequencia,
+         c.id_disciplina                id_disciplina,
+         c.titulo                       nome_disciplina,
+         d.semestre                     semestre,
+         d.ano                          ano
+  FROM   rel_avaliacaoturma_aluno      r,
+         rel_aluno_turmadisciplina     z,
+         rel_avaliacao_turmadisciplina t,
+         rel_turma_disciplina          k,
+         avaliacao                     v,
+         turma                         d,
+         usuario                       u,
+         disciplina                    c
   WHERE  t.id_avaliacao       = v.id_avaliacao       AND
          r.id_usuario         = u.id_usuario         AND
          u.id_usuario         = z.id_usuario         AND
-         z.id_turmadisciplina = k.id        AND
+         z.id_turmadisciplina = k.id                 AND
          r.id_avaliacaoturma  = t.id                 AND
          k.id                 = t.id_turmadisciplina AND
-         k.id_turma       = d.id_turma      AND
+         k.id_turma           = d.id_turma           AND
          k.id_disciplina      = c.id_disciplina      AND
          u.id_tipo_usuario    = 1; #id_tipo_usuario = 1 = aluno
 
 CREATE OR REPLACE VIEW vrel_situacao_aluno_disciplina AS
-  SELECT u.nome      nome_aluno,
-         d.titulo    nome_disciplina,
-         s.descricao situacao
+  SELECT r.id_usuario id_usuario,
+         u.nome       nome_aluno,
+         d.titulo     nome_disciplina,
+         s.descricao  situacao
   FROM   rel_situacao_aluno_disciplina r,
          situacao                      s,
          usuario                       u,
@@ -541,6 +547,8 @@ CREATE OR REPLACE VIEW vmedia_aluno_disciplina AS
            nome_aluno,
            sum(nota * peso) media,
            nome_disciplina,
-           frequencia
+           frequencia,
+           semestre,
+           ano
   FROM     vrel_avaliacaoturma_aluno r
-  GROUP BY id_usuario, nome_disciplina;
+  GROUP BY id_usuario, id_disciplina;

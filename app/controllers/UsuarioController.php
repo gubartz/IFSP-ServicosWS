@@ -13,11 +13,13 @@ class UsuarioController extends BaseController {
 	}
 
 	public function login(){
-		$sth = $this->db->prepare("SELECT ra
-			                              , id_usuario
-			                         FROM usuario 
-			                         WHERE ra = :usuario
-			                           AND senha = :senha"
+		$sth = $this->db->prepare("SELECT ra,
+			                                id_usuario,
+			                                nome
+			                         FROM   usuario 
+			                         WHERE  id_tipo_usuario = 1				 AND
+			                         				ra              = :usuario AND
+			                                senha           = :senha"
 			                       );
 
 		$usuario = $this->app->request->post('usuario');
