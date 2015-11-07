@@ -4,23 +4,6 @@ CREATE DATABASE ifspservicos;
 
 use ifspservicos;
 
-#Dropando as tabelas, caso existam
-drop table if exists rel_aluno_turma;
-drop table if exists rel_turma_disciplina;
-drop table if exists rel_disciplina_curso;
-drop table if exists rel_professor_disciplina;
-drop table if exists rel_avaliacaoturma_aluno;
-drop table if exists rel_situacao_aluno_disciplina;
-drop table if exists rel_turma_disciplina;
-drop table if exists rel_avaliacao_turmadisciplina;
-drop table if exists curso;
-drop table if exists usuario;
-drop table if exists tipo_usuario;
-drop table if exists turma;
-drop table if exists disciplina;
-drop table if exists avaliacao;
-drop table if exists situacao;
-
 #Criando as tabelas base
 CREATE TABLE curso(
   id_curso int(15) AUTO_INCREMENT PRIMARY KEY,
@@ -51,9 +34,13 @@ CREATE TABLE tipo_usuario(
 
 CREATE TABLE turma(
   id_turma int(15) AUTO_INCREMENT PRIMARY KEY,
-  codigo   varchar(30) NOT NULL,
   ano      int(15) NOT NULL,
   semestre int(15) NOT NULL
+);
+
+CREATE TABLE periodo(
+  id_periodo int(15) AUTO_INCREMENT PRIMARY KEY,
+  descricao  varchar(30) NOT NULL
 );
 
 CREATE TABLE disciplina(
@@ -83,10 +70,16 @@ CREATE TABLE rel_aluno_turma(
   id_usuario int(15) NOT NULL
 );
 
+CREATE TABLE rel_turma_periodo(
+  id_turmaperiodo int(15) AUTO_INCREMENT PRIMARY KEY,
+  id_turma        int(15) NOT NULL,
+  id_periodo      int(15) NOT NULL
+);
+
 CREATE TABLE rel_turma_disciplina(
-  id            int(15) AUTO_INCREMENT PRIMARY KEY,
-  id_turma      int(15) NOT NULL,
-  id_disciplina int(15) NOT NULL
+  id              int(15) AUTO_INCREMENT PRIMARY KEY,
+  id_turmaperiodo int(15) NOT NULL,
+  id_disciplina   int(15) NOT NULL
 );
 
 CREATE TABLE rel_aluno_turmadisciplina(
@@ -96,22 +89,22 @@ CREATE TABLE rel_aluno_turmadisciplina(
   frequencia         float(5,2) NOT NULL
 );
 
-CREATE TABLE rel_disciplina_curso(
-  id            int(15) AUTO_INCREMENT PRIMARY KEY,
-  id_disciplina int(15) NOT NULL,
-  id_curso      int(15) NOT NULL
-);
-
-CREATE TABLE rel_professor_disciplina(
-  id            int(15) AUTO_INCREMENT PRIMARY KEY,
-  id_usuario    int(15) NOT NULL,
-  id_disciplina int(15) NOT NULL
+CREATE TABLE rel_professor_turmadisciplina(
+  id                 int(15) AUTO_INCREMENT PRIMARY KEY,
+  id_usuario         int(15) NOT NULL,
+  id_turmadisciplina int(15) NOT NULL
 );
 
 CREATE TABLE rel_avaliacao_turmadisciplina(
   id                 int(15) AUTO_INCREMENT PRIMARY KEY,
   id_avaliacao       int(15) NOT NULL,
   id_turmadisciplina int(15) NOT NULL
+);
+
+CREATE TABLE rel_disciplina_curso(
+  id            int(15) AUTO_INCREMENT PRIMARY KEY,
+  id_disciplina int(15) NOT NULL,
+  id_curso      int(15) NOT NULL
 );
 
 CREATE TABLE rel_avaliacaoturma_aluno(
@@ -132,43 +125,44 @@ ALTER TABLE usuario
   ADD CONSTRAINT FK_relusuario_tipousuario FOREIGN KEY (id_tipo_usuario) REFERENCES tipo_usuario(id_tipo_usuario);
 
 ALTER TABLE rel_aluno_turma
-  ADD CONSTRAINT FK_relalunoturma_turma FOREIGN KEY (id_turma)   REFERENCES turma (id_turma),
-  ADD CONSTRAINT FK_relalunoturma_aluno FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario);
+  ADD CONSTRAINT FK_relalunoturma_turma FOREIGN KEY (id_turma)   REFERENCES turma(id_turma),
+  ADD CONSTRAINT FK_relalunoturma_aluno FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario);
+
+ALTER TABLE rel_turma_periodo
+  ADD CONSTRAINT FK_relturmaperiodo   FOREIGN KEY (id_turma)   REFERENCES turma(id_turma),
+  ADD CONSTRAINT FK_relturmaperiodo_periodo FOREIGN KEY (id_periodo) REFERENCES periodo(id_periodo);
 
 ALTER TABLE rel_turma_disciplina
-  ADD CONSTRAINT FK_relturmadisciplina_turma      FOREIGN KEY (id_turma)      REFERENCES turma (id_turma),
-  ADD CONSTRAINT FK_relturmadisciplina_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina (id_disciplina);
+  ADD CONSTRAINT FK_relturmadisciplina_turmaperiodo FOREIGN KEY (id_turmaperiodo) REFERENCES rel_turma_periodo(id_turmaperiodo),
+  ADD CONSTRAINT FK_relturmadisciplina_disciplina   FOREIGN KEY (id_disciplina)   REFERENCES disciplina(id_disciplina);
 
 ALTER TABLE rel_aluno_turmadisciplina
-  ADD CONSTRAINT FK_relalunoturmadisciplina_usuario         FOREIGN KEY (id_usuario)         REFERENCES usuario (id_usuario),
-  ADD CONSTRAINT FK_relalunoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES disciplina (id_disciplina);
+  ADD CONSTRAINT FK_relalunoturmadisciplina_usuario         FOREIGN KEY (id_usuario)         REFERENCES usuario(id_usuario),
+  ADD CONSTRAINT FK_relalunoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES disciplina(id_disciplina);
 
 ALTER TABLE rel_disciplina_curso
-  ADD CONSTRAINT FK_reldisciplinacurso_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina (id_disciplina),
-  ADD CONSTRAINT FK_reldisciplinacurso_curso      FOREIGN KEY (id_curso)      REFERENCES rel_turma_disciplina (id);
+  ADD CONSTRAINT FK_reldisciplinacurso_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina(id_disciplina),
+  ADD CONSTRAINT FK_reldisciplinacurso_curso      FOREIGN KEY (id_curso)      REFERENCES rel_turma_disciplina(id);
 
-ALTER TABLE rel_professor_disciplina
-  ADD CONSTRAINT FK_relprofessordisciplina_professor  FOREIGN KEY (id_usuario)    REFERENCES usuario (id_usuario),
-  ADD CONSTRAINT FK_relprofessordisciplina_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina (id_disciplina);
+ALTER TABLE rel_professor_turmadisciplina
+  ADD CONSTRAINT FK_relprofessordisciplina_professor  FOREIGN KEY (id_usuario)         REFERENCES usuario(id_usuario),
+  ADD CONSTRAINT FK_relprofessordisciplina_disciplina FOREIGN KEY (id_turmadisciplina) REFERENCES rel_turma_disciplina(id);
 
 ALTER TABLE rel_avaliacao_turmadisciplina
-  ADD CONSTRAINT FK_relavaliacaoturmadisciplina_avaliacao       FOREIGN KEY (id_avaliacao)       REFERENCES avaliacao (id_avaliacao),
-  ADD CONSTRAINT FK_relavaliacaoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES rel_turma_disciplina (id);
+  ADD CONSTRAINT FK_relavaliacaoturmadisciplina_avaliacao       FOREIGN KEY (id_avaliacao)       REFERENCES avaliacao(id_avaliacao),
+  ADD CONSTRAINT FK_relavaliacaoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES rel_turma_disciplina(id);
 
 ALTER TABLE rel_avaliacaoturma_aluno
-  ADD CONSTRAINT FK_relavaliacaodisciplinaaluno_relavaliacaoturma FOREIGN KEY (id_avaliacaoturma) REFERENCES rel_avaliacaoturma_aluno (id),
-  ADD CONSTRAINT FK_relavaliacaodisciplinaaluno_aluno             FOREIGN KEY (id_usuario)        REFERENCES usuario (id_usuario);
+  ADD CONSTRAINT FK_relavaliacaodisciplinaaluno_avaliacaoturma FOREIGN KEY (id_avaliacaoturma) REFERENCES rel_avaliacaoturma_aluno(id),
+  ADD CONSTRAINT FK_relavaliacaodisciplinaaluno_aluno          FOREIGN KEY (id_usuario)     REFERENCES usuario(id_usuario);
 
 ALTER TABLE rel_situacao_aluno_disciplina
-  ADD CONSTRAINT FK_relsituacaoalunodisciplina_situacao   FOREIGN KEY (id_situacao)   REFERENCES situacao (id_situacao),
-  ADD CONSTRAINT FK_relsituacaoalunodisciplina_aluno      FOREIGN KEY (id_usuario)    REFERENCES usuario (id_usuario),
-  ADD CONSTRAINT FK_relsituacaoalunodisciplina_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina (id_disciplina);
+  ADD CONSTRAINT FK_relsituacaoalunodisciplina_situacao   FOREIGN KEY (id_situacao)   REFERENCES situacao(id_situacao),
+  ADD CONSTRAINT FK_relsituacaoalunodisciplina_aluno      FOREIGN KEY (id_usuario)    REFERENCES usuario(id_usuario),
+  ADD CONSTRAINT FK_relsituacaoalunodisciplina_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina(id_disciplina);
 
 #Realizando as cargas de dados
-INSERT INTO curso VALUES( null,
-                          'Análise e Desenvolvimento de Sistemas',
-                          'Informática',
-                          6 );
+INSERT INTO curso VALUES( 1, 'Análise e Desenvolvimento de Sistemas', 'Informática', 6 );
 
 INSERT INTO tipo_usuario VALUES( 1, 'Aluno'     );
 INSERT INTO tipo_usuario VALUES( 2, 'Professor' );
@@ -290,8 +284,12 @@ INSERT INTO usuario VALUES( 9, #id_usuario
                             '123456', 
                             null);
 
-INSERT INTO turma VALUES( 1, 'N135', 2015, 1 );
-INSERT INTO turma VALUES( 2, 'N146', 2015, 2 );
+INSERT INTO turma VALUES( 1, 2015, 01 );
+INSERT INTO turma VALUES( 2, 2015, 02 );
+
+INSERT INTO periodo VALUES( 1, "Manhã" );
+INSERT INTO periodo VALUES( 2, "Tarde" );
+INSERT INTO periodo VALUES( 3, "Noite" );
 
 #Matérias do primeiro semestre 2015
 INSERT INTO disciplina VALUES( 1, 'DW1A5', 'Desenvolvimento para Web I'        , 80 );
@@ -345,6 +343,10 @@ INSERT INTO situacao VALUES( 3, 'Em Curso'  );
 INSERT INTO rel_aluno_turma VALUES( 1, 1, 1 );
 INSERT INTO rel_aluno_turma VALUES( 2, 2, 1 );
 
+#Incluindo relacionamento entre turma e o periodo em que a turma pertence
+INSERT INTO rel_turma_periodo VALUES( 1, 1, 3 );
+INSERT INTO rel_turma_periodo VALUES( 2, 2, 3 );
+
 #Criando o relacionamento entre matérias e turma
 INSERT INTO rel_turma_disciplina VALUES( 1, 1, 1 );
 INSERT INTO rel_turma_disciplina VALUES( 2, 1, 2 );
@@ -366,82 +368,81 @@ INSERT INTO rel_aluno_turmadisciplina VALUES( 7, 1, 7, 73.5 );
 INSERT INTO rel_aluno_turmadisciplina VALUES( 8, 1, 8, 100  );
 INSERT INTO rel_aluno_turmadisciplina VALUES( 9, 1, 9, 92.5 );
 
-INSERT INTO rel_disciplina_curso VALUES ( 1, 1, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 2, 2, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 3, 3, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 4, 4, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 5, 5, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 6, 6, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 7, 7, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 8, 8, 1 );
-INSERT INTO rel_disciplina_curso VALUES ( 9, 9, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 1, 1, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 2, 2, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 3, 3, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 4, 4, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 5, 5, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 6, 6, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 7, 7, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 8, 8, 1 );
+INSERT INTO rel_disciplina_curso VALUES( 9, 9, 1 );
 
-INSERT INTO rel_professor_disciplina VALUES ( 1, 2, 1 );
-INSERT INTO rel_professor_disciplina VALUES ( 2, 6, 2 );
-INSERT INTO rel_professor_disciplina VALUES ( 3, 9, 3 );
-INSERT INTO rel_professor_disciplina VALUES ( 4, 3, 4 );
-INSERT INTO rel_professor_disciplina VALUES ( 5, 4, 5 );
-INSERT INTO rel_professor_disciplina VALUES ( 6, 7, 6 );
-INSERT INTO rel_professor_disciplina VALUES ( 7, 5, 7 );
-INSERT INTO rel_professor_disciplina VALUES ( 8, 8, 8 );
-INSERT INTO rel_professor_disciplina VALUES ( 9, 2, 9 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 1, 2, 1 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 2, 6, 2 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 3, 9, 3 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 4, 3, 4 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 5, 4, 5 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 6, 7, 6 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 7, 5, 7 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 8, 8, 8 );
+INSERT INTO rel_professor_turmadisciplina VALUES( 9, 2, 9 );
 
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 1, 1, 1   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 2, 2, 1   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 3, 3, 3   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 4, 4, 3   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 5, 5, 3   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 6, 6, 3   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 7, 7, 2   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 8, 8, 2   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 9, 9, 2   );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 10, 10, 2 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 11, 11, 2 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 12, 12, 4 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 13, 13, 5 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 14, 14, 5 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 15, 15, 5 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 16, 16, 5 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 17, 17, 6 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 18, 18, 7 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 19, 19, 8 );
-INSERT INTO rel_avaliacao_turmadisciplina VALUES ( 20, 20, 9 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 1, 1, 1   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 2, 2, 1   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 3, 3, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 4, 4, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 5, 5, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 6, 6, 3   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 7, 7, 2   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 8, 8, 2   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 9, 9, 2   );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 10, 10, 2 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 11, 11, 2 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 12, 12, 4 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 13, 13, 5 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 14, 14, 5 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 15, 15, 5 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 16, 16, 5 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 17, 17, 6 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 18, 18, 7 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 19, 19, 8 );
+INSERT INTO rel_avaliacao_turmadisciplina VALUES( 20, 20, 9 );
 
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 1, 1, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 2, 2, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 3, 3, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 4, 4, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 5, 5, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 6, 6, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 7, 7, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 8, 8, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 9, 9, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 10, 10, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 11, 11, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 12, 12, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 13, 13, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 14, 14, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 15, 15, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 16, 16, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 17, 17, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 18, 18, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 19, 19, 1 );
-INSERT INTO rel_avaliacaoturma_aluno VALUES ( 20, 20, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 1, 1, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 2, 2, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 3, 3, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 4, 4, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 5, 5, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 6, 6, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 7, 7, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 8, 8, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 9, 9, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 10, 10, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 11, 11, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 12, 12, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 13, 13, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 14, 14, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 15, 15, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 16, 16, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 17, 17, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 18, 18, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 19, 19, 1 );
+INSERT INTO rel_avaliacaoturma_aluno VALUES( 20, 20, 1 );
 
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 1, 1, 1, 1 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 2, 1, 1, 2 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 3, 1, 1, 3 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 4, 1, 1, 4 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 5, 1, 1, 5 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 6, 3, 1, 6 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 7, 3, 1, 7 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 8, 3, 1, 8 );
-INSERT INTO rel_situacao_aluno_disciplina VALUES ( 9, 3, 1, 9 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 1, 1, 1, 1 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 2, 1, 1, 2 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 3, 1, 1, 3 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 4, 1, 1, 4 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 5, 1, 1, 5 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 6, 3, 1, 6 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 7, 3, 1, 7 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 8, 3, 1, 8 );
+INSERT INTO rel_situacao_aluno_disciplina VALUES( 9, 3, 1, 9 );
 
 #Criando as views, de forma a trazer a informação de uma forma visivelmente útil
 CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
   SELECT u.nome   nome_aluno,
-         t.codigo codigo_turma,
          c.titulo nome_curso,
          u.id_usuario,
          di.codigo,
@@ -449,35 +450,38 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
   FROM   rel_aluno_turma       r,
          rel_turma_disciplina  d,
          rel_disciplina_curso  k,
+         rel_turma_periodo     z,
          usuario               u,
          turma                 t,
          curso                 c,
          disciplina            di
-  WHERE  r.id_usuario      = u.id_usuario    AND
-         r.id_turma        = t.id_turma      AND
-         r.id_turma        = d.id_turma      AND
-         d.id_disciplina   = k.id_disciplina AND
-         k.id_curso        = c.id_curso      AND
-         u.id_tipo_usuario = 1               AND #id_tipo_usuario = 1 = aluno
+  WHERE  r.id_usuario      = u.id_usuario      AND
+         r.id_turma        = t.id_turma        AND
+         d.id_turmaperiodo = z.id_turmaperiodo AND
+         r.id_turma        = z.id_turma        AND
+         d.id_disciplina   = k.id_disciplina   AND
+         k.id_curso        = c.id_curso        AND
+         u.id_tipo_usuario = 1                 AND #id_tipo_usuario = 1 = aluno
          d.id_disciplina   = di.id_disciplina; 
 
 CREATE OR REPLACE VIEW vrel_aluno_turma_curso AS
   SELECT u.nome   nome_aluno,
-         t.codigo codigo_turma,
          c.titulo nome_curso
   FROM   usuario              u,
          turma                t,
          curso                c,
+         rel_turma_periodo    z,
          rel_aluno_turma      rat,
          rel_turma_disciplina rtd,
          rel_disciplina_curso rdc
-  WHERE  u.id_tipo_usuario = 1              AND
-         u.id_usuario      = rat.id_usuario AND
-         rat.id_turma      = t.id_turma     AND
-         rtd.id_turma      = t.id_turma     AND
-         rdc.id_disciplina = rtd.id_turma   AND
-         rdc.id_curso      = c.id_curso
-  GROUP BY nome, codigo, titulo;
+  WHERE  u.id_tipo_usuario   = 1                 AND
+         u.id_usuario        = rat.id_usuario    AND
+         rtd.id_turmaperiodo = z.id_turmaperiodo AND
+         z.id_turma          = t.id_turma        AND
+         z.id_turma          = t.id_turma        AND
+         #rdc.id_disciplina   = rtd.id_turma      AND
+         rdc.id_curso        = c.id_curso
+  GROUP BY nome, titulo;
 
 CREATE OR REPLACE VIEW vrel_disciplina_curso AS
   SELECT d.titulo nome_disciplina,
@@ -488,15 +492,17 @@ CREATE OR REPLACE VIEW vrel_disciplina_curso AS
   WHERE  r.id_disciplina = d.id_disciplina AND
          r.id_curso      = c.id_curso;
 
-CREATE OR REPLACE VIEW vrel_professor_disciplina AS
+CREATE OR REPLACE VIEW vrel_professor_turmadisciplina AS
   SELECT u.nome   nome_professor,
          d.titulo nome_disciplina
-  FROM   rel_professor_disciplina r,
-         usuario                  u,
-         disciplina               d
-  WHERE  r.id_usuario      = u.id_usuario    AND
-         r.id_disciplina   = d.id_disciplina AND
-         u.id_tipo_usuario = 2; #id_tipo_usuario = 2 = professor
+  FROM   rel_professor_turmadisciplina r,
+         rel_turma_disciplina          k,
+         usuario                       u,
+         disciplina                    d
+  WHERE  r.id_usuario         = u.id_usuario    AND
+         r.id_turmadisciplina = k.id            AND
+         k.id_disciplina      = d.id_disciplina AND
+         u.id_tipo_usuario    = 2; #id_tipo_usuario = 2 = professor
 
 CREATE OR REPLACE VIEW vrel_avaliacaoturma_aluno AS
   SELECT u.id_usuario                   id_usuario,
@@ -514,17 +520,19 @@ CREATE OR REPLACE VIEW vrel_avaliacaoturma_aluno AS
          rel_aluno_turmadisciplina     z,
          rel_avaliacao_turmadisciplina t,
          rel_turma_disciplina          k,
+         rel_turma_periodo             y,
          avaliacao                     v,
          turma                         d,
          usuario                       u,
          disciplina                    c
   WHERE  t.id_avaliacao       = v.id_avaliacao       AND
          r.id_usuario         = u.id_usuario         AND
+         k.id_turmaperiodo    = y.id_turmaperiodo    AND
          u.id_usuario         = z.id_usuario         AND
          z.id_turmadisciplina = k.id                 AND
          r.id_avaliacaoturma  = t.id                 AND
          k.id                 = t.id_turmadisciplina AND
-         k.id_turma           = d.id_turma           AND
+         y.id_turma           = d.id_turma           AND
          k.id_disciplina      = c.id_disciplina      AND
          u.id_tipo_usuario    = 1; #id_tipo_usuario = 1 = aluno
 
