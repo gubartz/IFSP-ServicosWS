@@ -514,6 +514,7 @@ CREATE OR REPLACE VIEW vrel_avaliacaoturma_aluno AS
          z.frequencia                   frequencia,
          c.id_disciplina                id_disciplina,
          c.titulo                       nome_disciplina,
+         c.codigo                       codigo_disciplina,
          d.semestre                     semestre,
          d.ano                          ano
   FROM   rel_avaliacaoturma_aluno      r,
@@ -554,6 +555,7 @@ CREATE OR REPLACE VIEW vmedia_aluno_disciplina AS
   SELECT   id_usuario,
            nome_aluno,
            sum(nota * peso) media,
+           codigo_disciplina,
            nome_disciplina,
            frequencia,
            semestre,

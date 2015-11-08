@@ -28,8 +28,8 @@ class Auth extends \Slim\Middleware{
         }
 
         $sth = $this->db->prepare("SELECT ra
-                                     FROM usuario 
-                                     WHERE token = :token"
+                                   FROM   usuario 
+                                   WHERE  token = :token"
                                  );
 
         $sth->bindParam(':token', $tokenAuth);

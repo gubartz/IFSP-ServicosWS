@@ -46,9 +46,9 @@ class UsuarioController extends BaseController {
 
 	private function updateToken($usuario, $senha, $token){
 		$sth = $this->db->prepare("UPDATE usuario 
-			                         SET token = :token
-			                         WHERE ra    = :usuario
-			                           AND senha = :senha"
+			                         SET    token = :token
+			                         WHERE  ra    = :usuario AND 
+                                      senha = :senha"
 			                       );
 		
 		$sth->bindParam(':token', $token);

@@ -7,8 +7,7 @@ class NotasController extends BaseController {
   
   public function index(){
 
-    $sth = $this->db->prepare("SELECT t.id_usuario,
-                                      t.id_disciplina,
+    $sth = $this->db->prepare("SELECT t.id_disciplina,
                                       t.nome_disciplina,
                                       t.descricao_avaliacao,
                                       t.data_avaliacao,
@@ -18,8 +17,11 @@ class NotasController extends BaseController {
                               WHERE   t.id_disciplina = :id_disciplina AND
                                       t.id_usuario    = :id_usuario");
 
-    $sth->bindParam(':id_usuario', $this->idUsuario);
-    $sth->bindParam(':id_disciplina', $this->idDisciplina);
+    $id_usuario = $this->app->request->post('id_usuario');
+    $sth->bindParam(':id_usuario', $id_usuario);
+
+    $id_disciplina = $this->app->request->post('id_disciplina');
+    $sth->bindParam(':id_disciplina', $id_disciplina);
 
     $sth->execute();
 

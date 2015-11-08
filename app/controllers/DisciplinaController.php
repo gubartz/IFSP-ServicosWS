@@ -7,10 +7,12 @@ class DisciplinaController extends BaseController {
 	
 	public function index(){
 		$sth = $this->db->prepare("SELECT * 
-                               FROM vmedia_aluno_disciplina
-			                         WHERE id_usuario = :id_usuario");
+                               FROM   vmedia_aluno_disciplina
+			                         WHERE  id_usuario = :id_usuario");
 
-		$sth->bindParam(':id_usuario', $this->idUsuario);
+    $id_usuario = $this->app->request->post('id_usuario');
+
+    $sth->bindParam(':id_usuario', $id_usuario);
 
 		$sth->execute();
 
