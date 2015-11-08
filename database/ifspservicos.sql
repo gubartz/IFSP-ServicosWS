@@ -138,7 +138,7 @@ ALTER TABLE rel_turma_disciplina
 
 ALTER TABLE rel_aluno_turmadisciplina
   ADD CONSTRAINT FK_relalunoturmadisciplina_usuario         FOREIGN KEY (id_usuario)         REFERENCES usuario(id_usuario),
-  ADD CONSTRAINT FK_relalunoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES disciplina(id_disciplina);
+  ADD CONSTRAINT FK_relalunoturmadisciplina_turmadisciplina FOREIGN KEY (id_turmadisciplina) REFERENCES rel_turma_disciplina(id);
 
 ALTER TABLE rel_disciplina_curso
   ADD CONSTRAINT FK_reldisciplinacurso_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplina(id_disciplina),
