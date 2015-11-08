@@ -21,11 +21,5 @@ class BaseController {
     }else{
     	$this->idUsuario = null;
     }
-
-    if(isset($this->headers['Disciplina'])){
-      $this->idDisciplina = $this->headers['Disciplina']; 
-    }else{
-      $this->idDisciplina = null;
-    }
   }
 }
