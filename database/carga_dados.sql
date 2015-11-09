@@ -244,3 +244,7 @@ INSERT INTO rel_avaliacao_turma_disciplina VALUES( 3, 3, 3 );
 INSERT INTO rel_avaliacao_turma_aluno VALUES( 1, 1, 1 , 5);
 INSERT INTO rel_avaliacao_turma_aluno VALUES( 2, 2, 1 , 10);
 INSERT INTO rel_avaliacao_turma_aluno VALUES( 3, 3, 1 , 4);
+
+INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 1, 10);
+INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 2, 5);
+INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 3, 8);

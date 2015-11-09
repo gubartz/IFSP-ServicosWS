@@ -1,4 +1,6 @@
 #Criando as views, de forma a trazer a informação de uma forma visivelmente útil
+
+#Mantém todas as notas tiradas em todas as turmas de disciplinas
 CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
   SELECT c.titulo     AS curso
        , u.nome       AS usuario
@@ -8,6 +10,7 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
        , d.titulo       AS disciplina
        , d.codigo
        , ata.nota
+       , td.id_turma_disciplina
   FROM curso                      c
      , usuario                    u
      , turma                      t
@@ -26,3 +29,31 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
     AND ata.id_usuario                     = u.id_usuario
     AND avtd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina
     AND avtd.id_turma_disciplina           = td.id_turma_disciplina;
+
+#Mantém todas as médias finais
+CREATE OR REPLACE VIEW vrel_aluno_turma_nota_final AS
+  SELECT u.nome       AS usuario
+       , u.id_usuario
+       , u.ra      
+       , s.media_final
+       , si.descricao AS situacao
+       , s.id_aluno_turma_disciplina
+  FROM rel_situacao_aluno_turma   s
+     , usuario                    u
+     , rel_aluno_turma_disciplina atd
+     , rel_turma_disciplina       td
+     , situacao                   si
+  WHERE u.id_usuario                = s.id_usuario
+    AND s.id_aluno_turma_disciplina = atd.id_aluno_turma_disciplina
+    AND atd.id_turma_disciplina     = td.id_turma_disciplina
+    AND s.id_situacao               = si.id_situacao;
+
+#Mantém as disciplinas de acordo com o curso
+CREATE OR REPLACE VIEW v_rel_disciplina_curso AS
+  SELECT dc.*
+       , d.codigo
+       , d.titulo
+       , d.carga_horaria
+  FROM rel_disciplina_curso dc
+     , disciplina           d
+  WHERE dc.id_disciplina = d.id_disciplina;

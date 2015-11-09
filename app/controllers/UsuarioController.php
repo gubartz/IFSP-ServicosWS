@@ -4,13 +4,6 @@ use Helpers\helpers;
 use \PDO;
 
 class UsuarioController extends BaseController {
-	
-	public function index(){
-		$sth = $this->db->prepare("SELECT * FROM disciplina");
-		$sth->execute();
-
-		helpers::jsonResponse(false, 'results', $sth->fetchAll(PDO::FETCH_OBJ));
-	}
 
 	public function login(){
 		$sth = $this->db->prepare("SELECT ra,
@@ -60,9 +53,5 @@ class UsuarioController extends BaseController {
 
 	private function generateToken(){
 		return bin2hex(openssl_random_pseudo_bytes(16));
-	}
-
-	public function register(){
-		
 	}
 }

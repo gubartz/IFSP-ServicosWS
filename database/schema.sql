@@ -119,6 +119,7 @@ CREATE TABLE rel_situacao_aluno_turma(
   id_situacao               int(15) NOT NULL,
   id_usuario                int(15) NOT NULL,
   id_aluno_turma_disciplina int(15) NOT NULL,
+  media_final               float(4,2)  NOT NULL,
   UNIQUE(id_usuario, id_aluno_turma_disciplina)
 );
 
