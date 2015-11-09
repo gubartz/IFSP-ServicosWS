@@ -7,7 +7,6 @@ class BaseController {
   protected $app;
   protected $db;
   protected $headers;
-  protected $idUsuario;
   protected $idDisciplina;
 
   function __construct() {
@@ -15,11 +14,5 @@ class BaseController {
     $db            = new DB();
     $this->db      = $db->connect();
     $this->headers = getallheaders();
-
-    if(isset($this->headers['Usuario'])){
-    	$this->idUsuario = $this->headers['Usuario'];	
-    }else{
-    	$this->idUsuario = null;
-    }
   }
 }
