@@ -7,7 +7,6 @@ class BaseController {
   protected $app;
   protected $db;
   protected $headers;
-  protected $idDisciplina;
 
   function __construct() {
     $this->app     = Slim::getInstance();
