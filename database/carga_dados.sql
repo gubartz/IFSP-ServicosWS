@@ -1,4 +1,33 @@
 #Realizando as cargas de dados
+
+INSERT INTO noticia VALUES( 1, 'EQUIPES DE HORTOLÂNDIA GANHAM O TORNEIO ROBOCODE IFSP 2015', 'De setembro a novembro ocorreu o Torneio Robocode IFSP 2015 que foi realizado pelo Campus Capivari. Houve 11 equipes participantes, dentre elas, duas equipes do Campus Hortolândia. As equipes foram formadas pelos alunos do ADS matutino e noturno. A equipe do ADS matutino era composta pelos alunos Felipe, Gabriel e Julio e liderados pelo estudante Lenilson. Os alunos João, Rodolfo e Thiago com a liderança do estudante Davi formavam a equipe do ADS noturno.    Com muito orgulho, nossas equipes ficaram em 1º (ADS noturno) e 2º lugar (ADS matutino) no campeonato interno. O primeiro colocado também teve a oportunidade de participar do Torneio Robocode 2015 realizado em Limeira. Nessa ocasião, os campeões do Torneio Robocode IFSP 2015 receberam um prêmio.');
+INSERT INTO noticia VALUES( 2, 'I WORKSHOP DE PROJETOS DA MECÂNICA 2015', '  No dia 02 de dezembro ocorrerá o I Workshop de Projetos da Mecânica 2015. As atividades terão início às 14h e irá até as 22h. Para participar acesse a Programação, escolha qual atividade você irá participar e então se inscreva pelo Site.');
+INSERT INTO noticia VALUES( 3, 'SEMANA DA CONSCIÊNCIA NEGRA: DIVERSIDADE, RAÇA E GÊNERO EM DEBATE DO IFSP', '   A Coordenadoria de Extensão, Coordenadoria Sociopedagógica e NAPNE orgulhosamente convidam para a Semana da Consciência Negra: Diversidade, raça e gênero em debate do IFSP Câmpus Hortolândia - de 13 a 23 de novembro. Para informações acesse a Programação. Participem!');
+INSERT INTO noticia VALUES( 4, 'PUBLICADO ANAIS DA SNCT DO CÂMPUS HORTOLÂNDIA DE 2014', 'É com muita satisfação e alegria que a organização da III Semana Nacional de Ciência e Tecnologia do Câmpus Hortolândia divulga o lançamento dos Anais do evento. Os Anais trazem os resumos dos trabalhos acadêmicos, de extensão e de iniciação científica que foram apresentados no evento pelos alunos, os resultados dos concursos de poemas e de imagens digitais com as respectivas obras vencedoras e também os resumos das palestras e minicursos ministrados durante o evento, que ocorreu nos dias 13 e 14 de outubro de 2014. Outro objetivo da organização foi resgatar as informações sobre a II edição, que ocorreu em 2013, com o intuito de registrar a história do evento e do câmpus. Os Anais estão disponíveis gratuitamente no portal do câmpus. Os organizadores aproveitam a oportunidade para agradecer a todos os envolvidos na elaboração e parabeniza os autores dos resumos pelos trabalhos.');
+INSERT INTO noticia VALUES( 5, 'RESULTADO: SELECIONADOS PARA FAZER O CURSO CONSTRUINDO SITES EM JOOMLA', '   A lista final dos candidatos que realizarão o curso Construindo sites com Joomla! está disponível nesta notícia. O curso será realizado nos dias 7, 14, 21 e 28 de Novembro de 2015, das 10h00 às 16h00 no Laboratório 3 do IFSP - Câmpus Hortolândia.
+ 
+ 
+Anderson Cascalho de Souza
+Antonio Marcio Paschoal
+Clodoaldo Aparecido Peternella
+Clodoaldo do Nascimento Junior
+Daniel Eduardo Cazelli Mendes Soares
+Douglas de Araújo
+Elisangela Dubiel dos Santos
+Elizabeth Silva
+Elton Cesar Prando
+Isaias de Jesus Souza Júnior
+Jefferson Aparecido da Silva
+João Pedro Santos Vidiri
+Juliano Ricceli da Silva
+Lucas Vinicius Pimenta
+Luiz Torres Júnior
+Menelik Samori Nazaré Soares
+Reginaldo Donizete Ribeiro da Silva
+Renata Gomes Da Silva
+Ronaldo Rodrigues Martins
+Welliton Gonçalves de Souza');
+
 INSERT INTO curso VALUES( 1, 'Análise e Desenvolvimento de Sistemas', 'Informática', 6 );
 
 INSERT INTO tipo_usuario VALUES( 1, 'Aluno'     );

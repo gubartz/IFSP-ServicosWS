@@ -4,6 +4,12 @@ CREATE DATABASE ifspservicos;
 
 use ifspservicos;
 
+CREATE TABLE noticia(
+  id_noticia int(15) AUTO_INCREMENT PRIMARY KEY,
+  titulo     varchar(50) NOT NULL,
+  corpo      varchar(5000) NOT NULL
+);
+
 #Criando as tabelas base
 CREATE TABLE curso(
   id_curso int(15) AUTO_INCREMENT PRIMARY KEY,

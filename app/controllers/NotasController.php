@@ -27,14 +27,14 @@ class NotasController extends BaseController {
 
     $sth = $this->db->prepare("SELECT * 
                                FROM vrel_aluno_turma_nota_final
-                               WHERE id_aluno_turma_disciplina = :id_aluno_turma_disciplina AND
-                                     id_usuario                = :id_usuario");
+                               WHERE semestre   = :semestre AND
+                                     id_usuario = :id_usuario");
 
     $id_usuario = $this->app->request->post('id_usuario');
     $sth->bindParam(':id_usuario', $id_usuario);
 
-    $id_aluno_turma_disciplina = $this->app->request->post('id_aluno_turma_disciplina');
-    $sth->bindParam(':id_aluno_turma_disciplina', $id_aluno_turma_disciplina);
+    $semestre = $this->app->request->post('semestre');
+    $sth->bindParam(':semestre', $semestre);
 
     $sth->execute();
 
