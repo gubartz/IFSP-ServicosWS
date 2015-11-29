@@ -6,8 +6,8 @@ use ifspservicos;
 
 CREATE TABLE noticia(
   id_noticia int(15) AUTO_INCREMENT PRIMARY KEY,
-  titulo     varchar(50) NOT NULL,
-  corpo      varchar(5000) NOT NULL
+  titulo     varchar(5000) NOT NULL,
+  corpo      varchar(10000) NOT NULL
 );
 
 #Criando as tabelas base
