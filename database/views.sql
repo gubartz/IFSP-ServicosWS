@@ -30,29 +30,28 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
     AND avtd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina
     AND avtd.id_turma_disciplina           = td.id_turma_disciplina;
 
-#Mantém todas as médias finais por turma
+#Mantém todas as médias finais
 CREATE OR REPLACE VIEW vrel_aluno_turma_nota_final AS
-SELECT u.nome
-     , u.id_usuario
-		 , d.codigo 
-		 , d.titulo 
-		 , b.semestre 
-		 , b.ano
-		 , s.media_final
-		 , si.descricao
-FROM rel_turma_disciplina       a 
-	 , turma                      b 
-	 , rel_aluno_turma_disciplina c 
-	 , usuario                    u 
-	 , disciplina                 d
-	 , rel_situacao_aluno_turma   s
-	 , situacao                   si    
-WHERE a.id_turma                  = b.id_turma 
-  AND a.id_turma_disciplina       = c.id_turma_disciplina 
-  AND c.id_usuario                = u.id_usuario 
-  AND a.id_disciplina             = d.id_disciplina
-  AND s.id_aluno_turma_disciplina = c.id_aluno_turma_disciplina
-  AND s.id_situacao               = si.id_situacao;
+  SELECT u.id_usuario
+       , di.codigo    AS codigo_disciplina
+       , di.titulo    AS nome_disciplina
+       , si.descricao AS situacao
+       , s.media_final
+       , atd.frequencia
+       , tm.semestre
+  FROM rel_situacao_aluno_turma   s
+     , usuario                    u
+     , rel_aluno_turma_disciplina atd
+     , rel_turma_disciplina       td
+     , situacao                   si
+     , disciplina                 di
+     , turma                      tm
+  WHERE u.id_usuario                = s.id_usuario
+    AND s.id_aluno_turma_disciplina = atd.id_aluno_turma_disciplina
+    AND atd.id_turma_disciplina     = td.id_turma_disciplina
+    AND s.id_situacao               = si.id_situacao
+    AND td.id_disciplina            = di.id_disciplina
+    AND tm.id_turma                 = td.id_turma;
 
 #Mantém as disciplinas de acordo com o curso
 CREATE OR REPLACE VIEW v_rel_disciplina_curso AS
