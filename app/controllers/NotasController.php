@@ -8,15 +8,15 @@ class NotasController extends BaseController {
   public function listarNotasTurmaDisciplina(){
 
     $sth = $this->db->prepare("SELECT *
-                               FROM vrel_aluno_turma_curso_disciplina
-                               WHERE id_turma_disciplina = :id_turma_disciplina AND
-                                     id_usuario          = :id_usuario");
+                               FROM   vrel_aluno_turma_nota_final
+                               WHERE  id_disciplina = :id_disciplina AND
+                                      id_usuario    = :id_usuario");
 
     $id_usuario = $this->app->request->post('id_usuario');
     $sth->bindParam(':id_usuario', $id_usuario);
 
-    $id_turma_disciplina = $this->app->request->post('id_turma_disciplina');
-    $sth->bindParam(':id_turma_disciplina', $id_turma_disciplina);
+    $id_disciplina = $this->app->request->post('id_disciplina');
+    $sth->bindParam(':id_disciplina', $id_disciplina);
 
     $sth->execute();
 
@@ -25,10 +25,18 @@ class NotasController extends BaseController {
 
   public function mediaFinalAlunoTurmaDisciplina(){
 
-    $sth = $this->db->prepare("SELECT * 
-                               FROM vrel_aluno_turma_nota_final
-                               WHERE semestre   = :semestre AND
-                                     id_usuario = :id_usuario");
+    $sth = $this->db->prepare("SELECT id_usuario,
+                                      id_disciplina,
+                                      codigo_disciplina,
+                                      descricao_disciplina,
+                                      frequencia,
+                                      descricao_situacao,
+                                      media_final,
+                                      semestre
+                               FROM   vrel_aluno_turma_nota_final
+                               WHERE  semestre   = :semestre AND
+                                      id_usuario = :id_usuario
+                               group by id_disciplina");
 
     $id_usuario = $this->app->request->post('id_usuario');
     $sth->bindParam(':id_usuario', $id_usuario);

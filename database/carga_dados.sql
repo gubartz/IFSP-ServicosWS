@@ -240,9 +240,18 @@ INSERT INTO rel_disciplina_curso VALUES( null, 32, 1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 33, 1 );
 
 #Avaliações
-INSERT INTO avaliacao VALUES( 1, '2015-03-26', 'Prova 1', 0.7 );
-INSERT INTO avaliacao VALUES( 2, '2015-06-29', 'Prova 2', 0.3 );
-INSERT INTO avaliacao VALUES( 3, '2015-06-29', 'Prova 2', 0.3 );
+INSERT INTO avaliacao VALUES( 1, '2015-03-26', 'Prova 1', 0.35 );
+INSERT INTO avaliacao VALUES( 2, '2015-06-29', 'Prova 2', 0.35 );
+INSERT INTO avaliacao VALUES( 3, '2015-04-15', 'Trabalho 1', 0.15 );
+INSERT INTO avaliacao VALUES( 4, '2015-06-21', 'Trabalho 2', 0.15 );
+INSERT INTO avaliacao VALUES( 5, '2015-02-27', 'Prova 1', 0.35 );
+INSERT INTO avaliacao VALUES( 6, '2015-07-23', 'Prova 2', 0.35 );
+INSERT INTO avaliacao VALUES( 7, '2015-03-10', 'Trabalho 1', 0.15 );
+INSERT INTO avaliacao VALUES( 8, '2015-05-03', 'Trabalho 2', 0.15 );
+INSERT INTO avaliacao VALUES( 9, '2015-02-27', 'Prova 1', 0.23 );
+INSERT INTO avaliacao VALUES( 10, '2015-07-23', 'Prova 2', 0.23 );
+INSERT INTO avaliacao VALUES( 11, '2015-07-23', 'Prova 3', 0.23 );
+INSERT INTO avaliacao VALUES( 12, '2015-12-10', 'Seminário', 0.31 );
 
 #Situações
 INSERT INTO situacao VALUES( 1, 'Aprovado'  );
@@ -267,12 +276,30 @@ INSERT INTO rel_professor_turma_disciplina VALUES( 2, 2, 2 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 3, 2, 3 );
 
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 1, 1, 1 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 2, 2, 2 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 3, 3, 3 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 2, 2, 1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 3, 3, 1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 4, 4, 1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 5, 5, 2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 6, 6, 2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 7, 7, 2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 8, 8, 2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 9, 9, 3 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 10, 10, 3 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 11, 11, 3 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 12, 12, 3 );
 
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 1, 1, 1 , 5);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 2, 2, 1 , 10);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 3, 3, 1 , 4);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 1, 1, 1 , 6);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 2, 2, 1 , 6);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 3, 3, 1 , 10);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 4, 4, 1 , 10);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 5, 5, 1 , 9);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 6, 6, 1 , 7);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 7, 7, 1 , 0);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 8, 8, 1 , 8.5);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 9, 9, 1 , 7);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 10, 10, 1 , 7);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 11, 11, 1 , 6.5);
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 12, 12, 1 , 9.7);
 
 INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 1, 10);
 INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 2, 5);

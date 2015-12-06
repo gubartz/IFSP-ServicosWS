@@ -1,11 +1,9 @@
 <?php
 $app->post("/", "Controllers\BaseController:index");
 
-$app->post("/disciplina/listar", "Controllers\DisciplinaController:listar");
-
 $app->post("/noticia/listar", "Controllers\NoticiasController:listar");
 
-$app->post("/disciplina/listarDisciplinaPorCurso", "Controllers\DisciplinaController:listarDisciplinaPorCurso");
+$app->post("/data/listarProximasAvaliacoes", "Controllers\DataController:listarProximasAvaliacoes");
 
 $app->post("/notas/listarNotasTurmaDisciplina", "Controllers\NotasController:listarNotasTurmaDisciplina");
 
