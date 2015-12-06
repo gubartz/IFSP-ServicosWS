@@ -1,4 +1,4 @@
-#Criando as views, de forma a trazer a informação de uma forma visivelmente útil
+#CriANDo as views, de forma a trazer a informação de uma forma visivelmente útil
 
 #Mantém todas as notas tiradas em todas as turmas de disciplinas
 CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
@@ -32,7 +32,7 @@ CREATE OR REPLACE VIEW vrel_aluno_turma_curso_disciplina AS
 
 #Mantém todas as médias finais
 CREATE OR REPLACE VIEW vrel_aluno_turma_nota_final AS
-select usr.id_usuario                    id_usuario,
+SELECT usr.id_usuario                    id_usuario,
        usr.nome                          nome_aluno,
        avl.descricao                     descricao_avaliacao,
        dcp.id_disciplina                 id_disciplina,
@@ -44,8 +44,9 @@ select usr.id_usuario                    id_usuario,
        ats.frequencia                    frequencia,
        sit.descricao                     descricao_situacao,
        sat.media_final                   media_final,
-       trm.semestre
-from   rel_avaliacao_turma_disciplina    atd,
+       trm.semestre,
+       trm.ano
+FROM   rel_avaliacao_turma_disciplina    atd,
        rel_turma_disciplina              tdi,
        rel_aluno_turma_disciplina        ats,
        rel_avaliacao_turma_aluno         ata,
@@ -55,15 +56,15 @@ from   rel_avaliacao_turma_disciplina    atd,
        disciplina                        dcp,
        situacao                          sit,
        turma                             trm
-where atd.id_avaliacao                  = avl.id_avaliacao                  and
-      atd.id_turma_disciplina           = ats.id_turma_disciplina           and
-      atd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina and
-      atd.id_turma_disciplina           = tdi.id_turma_disciplina           and
-      ats.id_usuario                    = usr.id_usuario                    and
-      ats.id_aluno_turma_disciplina     = sat.id_aluno_turma_disciplina     and
-      sat.id_situacao                   = sit.id_situacao                   and
-      dcp.id_disciplina                 = tdi.id_disciplina                 and
-      ata.id_usuario                    = usr.id_usuario                    and
+where atd.id_avaliacao                  = avl.id_avaliacao                  AND
+      atd.id_turma_disciplina           = ats.id_turma_disciplina           AND
+      atd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina AND
+      atd.id_turma_disciplina           = tdi.id_turma_disciplina           AND
+      ats.id_usuario                    = usr.id_usuario                    AND
+      ats.id_aluno_turma_disciplina     = sat.id_aluno_turma_disciplina     AND
+      sat.id_situacao                   = sit.id_situacao                   AND
+      dcp.id_disciplina                 = tdi.id_disciplina                 AND
+      ata.id_usuario                    = usr.id_usuario                    AND
       tdi.id_turma                      = trm.id_turma;
 
 #Mantém as disciplinas de acordo com o curso
@@ -78,7 +79,7 @@ CREATE OR REPLACE VIEW v_rel_disciplina_curso AS
 
 
 CREATE OR REPLACE VIEW vrel_aluno_turma_nota_avaliacao AS
-select usr.id_usuario                    id_usuario,
+SELECT usr.id_usuario                    id_usuario,
        usr.nome                          nome_aluno,
        avl.descricao                     descricao_avaliacao,
        dcp.id_disciplina                 id_disciplina,
@@ -87,17 +88,53 @@ select usr.id_usuario                    id_usuario,
        avl.data                          data_avaliacao,
        ata.nota                          nota_avaliacao,
        avl.peso                          peso_avaliacao
-from   rel_avaliacao_turma_disciplina    atd,
+FROM   rel_avaliacao_turma_disciplina    atd,
        rel_turma_disciplina              tdi,
        rel_aluno_turma_disciplina        ats,
        rel_avaliacao_turma_aluno         ata,
        usuario                           usr,
        avaliacao                         avl,
        disciplina                        dcp
-where atd.id_avaliacao                  = avl.id_avaliacao                  and
-      atd.id_turma_disciplina           = ats.id_turma_disciplina           and
-      atd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina and
-      atd.id_turma_disciplina           = tdi.id_turma_disciplina           and
-      ats.id_usuario                    = usr.id_usuario                    and
-      dcp.id_disciplina                 = tdi.id_disciplina                 and
+where atd.id_avaliacao                  = avl.id_avaliacao                  AND
+      atd.id_turma_disciplina           = ats.id_turma_disciplina           AND
+      atd.id_avaliacao_turma_disciplina = ata.id_avaliacao_turma_disciplina AND
+      atd.id_turma_disciplina           = tdi.id_turma_disciplina           AND
+      ats.id_usuario                    = usr.id_usuario                    AND
+      dcp.id_disciplina                 = tdi.id_disciplina                 AND
       ata.id_usuario                    = usr.id_usuario;
+
+CREATE OR REPLACE VIEW vsemestres_cursados_aluno AS
+SELECT trm.ano,
+       trm.semestre,
+       atd.id_usuario
+FROM   rel_situacao_aluno_turma      sat,
+       rel_aluno_turma_disciplina    atd,
+       rel_turma_disciplina          trd,
+       turma                         trm
+WHERE  sat.id_aluno_turma_disciplina =    atd.id_aluno_turma_disciplina AND
+       atd.id_turma_disciplina       =    trd.id_turma_disciplina       AND
+       trd.id_turma                  =    trm.id_turma;
+
+CREATE OR REPLACE VIEW vrel_disciplin_situacao_media_final AS
+SELECT u.id_usuario
+     , di.id_disciplina
+     , di.codigo    AS codigo_disciplina
+     , di.titulo    AS descricao_disciplina
+     , si.descricao AS descricao_situacao
+     , s.media_final
+     , atd.frequencia
+     , tm.semestre
+     , tm.ano
+FROM rel_situacao_aluno_turma   s
+   , usuario                    u
+   , rel_aluno_turma_disciplina atd
+   , rel_turma_disciplina       td
+   , situacao                   si
+   , disciplina                 di
+   , turma                      tm
+WHERE u.id_usuario                = s.id_usuario
+  AND s.id_aluno_turma_disciplina = atd.id_aluno_turma_disciplina
+  AND atd.id_turma_disciplina     = td.id_turma_disciplina
+  AND s.id_situacao               = si.id_situacao
+  AND td.id_disciplina            = di.id_disciplina
+  AND tm.id_turma                 = td.id_turma;

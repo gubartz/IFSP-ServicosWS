@@ -71,8 +71,8 @@ CREATE TABLE situacao(
 #Criando as tabelas de relacionamento
 CREATE TABLE rel_turma_periodo(
   id_turma_periodo int(15) AUTO_INCREMENT PRIMARY KEY,
-  id_turma        int(15) NOT NULL,
-  id_periodo      int(15) NOT NULL,
+  id_turma         int(15) NOT NULL,
+  id_periodo       int(15) NOT NULL,
   UNIQUE(id_turma)
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE rel_turma_disciplina(
   id_turma_disciplina int(15) AUTO_INCREMENT PRIMARY KEY,
   id_turma            int(15) NOT NULL,
   id_disciplina       int(15) NOT NULL,
-  UNIQUE(id_turma)
+  UNIQUE(id_turma, id_disciplina)
 );
 
 CREATE TABLE rel_aluno_turma_disciplina(

@@ -151,58 +151,61 @@ INSERT INTO usuario VALUES( 9, #id_usuario
                             null);
 
 #Criação de Turmas
-INSERT INTO turma VALUES( 1, 2015, 01 );
-INSERT INTO turma VALUES( 2, 2015, 02 );
-INSERT INTO turma VALUES( 3, 2015, 02 );
+INSERT INTO turma VALUES( 1, 2013, 01 );
+INSERT INTO turma VALUES( 2, 2013, 02 );
+INSERT INTO turma VALUES( 3, 2014, 01 );
+INSERT INTO turma VALUES( 4, 2014, 02 );
+INSERT INTO turma VALUES( 5, 2015, 01 );
+INSERT INTO turma VALUES( 6, 2015, 02 );
 
 INSERT INTO periodo VALUES( 1, "Matutino" );
 INSERT INTO periodo VALUES( 2, "Vespertino" );
 INSERT INTO periodo VALUES( 3, "Noturno" );
 
 #Matérias do primeiro semestre
-INSERT INTO disciplina VALUES( null, 'ADCA1', 'Arquitetura de Computadores', 80 );
-INSERT INTO disciplina VALUES( null, 'LOPA1', 'Lógica de Programação', 120 );
-INSERT INTO disciplina VALUES( null, 'COEA1', 'Comunicação e Expressão', 40 );
-INSERT INTO disciplina VALUES( null, 'INGA1', 'Inglês técnico', 40 );
-INSERT INTO disciplina VALUES( null, 'MD1A1', 'Matemática Discreta I', 40 );
-INSERT INTO disciplina VALUES( null, 'HCTA1', 'História da Ciência e da Tecnologia', 40 );
+INSERT INTO disciplina VALUES( 1, 'ADCA1', 'Arquitetura de Computadores', 80 );
+INSERT INTO disciplina VALUES( 2, 'LOPA1', 'Lógica de Programação', 120 );
+INSERT INTO disciplina VALUES( 3, 'COEA1', 'Comunicação e Expressão', 40 );
+INSERT INTO disciplina VALUES( 4, 'INGA1', 'Inglês técnico', 40 );
+INSERT INTO disciplina VALUES( 5, 'MD1A1', 'Matemática Discreta I', 40 );
+INSERT INTO disciplina VALUES( 6, 'HCTA1', 'História da Ciência e da Tecnologia', 40 );
 
 #Matérias do segundo semestre
-INSERT INTO disciplina VALUES( null, 'MD1A2', 'Matemática Discreta II', 40 );
-INSERT INTO disciplina VALUES( null, 'AS1A2', 'Análise de Sistemas I', 80 );
-INSERT INTO disciplina VALUES( null, 'ADMA2', 'Administração Geral', 40 );
-INSERT INTO disciplina VALUES( null, 'SOPA2', 'Sistemas Operacionais', 80 );
-INSERT INTO disciplina VALUES( null, 'RC1A2', 'Redes de Computadores I', 80 );
-INSERT INTO disciplina VALUES( null, 'LOGA2', 'Linguagem de Programação I', 80 );
+INSERT INTO disciplina VALUES( 7, 'MD1A2', 'Matemática Discreta II', 40 );
+INSERT INTO disciplina VALUES( 8, 'AS1A2', 'Análise de Sistemas I', 80 );
+INSERT INTO disciplina VALUES( 9, 'ADMA2', 'Administração Geral', 40 );
+INSERT INTO disciplina VALUES( 10, 'SOPA2', 'Sistemas Operacionais', 80 );
+INSERT INTO disciplina VALUES( 11, 'RC1A2', 'Redes de Computadores I', 80 );
+INSERT INTO disciplina VALUES( 12, 'LOGA2', 'Linguagem de Programação I', 80 );
 
 #Matérias do terceiro semestre
-INSERT INTO disciplina VALUES( null, 'PEEA3', 'Probabilidade e Estatística', 40 );
-INSERT INTO disciplina VALUES( null, 'OSMA3', 'Organização, Sistemas e Métodos', 40 );
-INSERT INTO disciplina VALUES( null, 'BD1A3', 'Banco de Dados I', 80 );
-INSERT INTO disciplina VALUES( null, 'EDDA3', 'Estrutura de Dados', 80 );
-INSERT INTO disciplina VALUES( null, 'RC2A3', 'Redes de Computadores II', 80 );
-INSERT INTO disciplina VALUES( null, 'AS2A3', 'Análise de Sistemas II', 80 );
+INSERT INTO disciplina VALUES( 13, 'PEEA3', 'Probabilidade e Estatística', 40 );
+INSERT INTO disciplina VALUES( 14, 'OSMA3', 'Organização, Sistemas e Métodos', 40 );
+INSERT INTO disciplina VALUES( 15, 'BD1A3', 'Banco de Dados I', 80 );
+INSERT INTO disciplina VALUES( 16, 'EDDA3', 'Estrutura de Dados', 80 );
+INSERT INTO disciplina VALUES( 17, 'RC2A3', 'Redes de Computadores II', 80 );
+INSERT INTO disciplina VALUES( 18, 'AS2A3', 'Análise de Sistemas II', 80 );
 
 #Matérias do quarto semestre
-INSERT INTO disciplina VALUES( null, 'BD2A4', 'Banco de Dados II', 80 );
-INSERT INTO disciplina VALUES( null, 'MTPA4', 'Metodologia de Pesquisa', 40 );
-INSERT INTO disciplina VALUES( null, 'GSIA4', 'Gestão de Serviços Informatizados', 40 );
-INSERT INTO disciplina VALUES( null, 'IDSA4', 'Implantação de Servidores', 80 );
-INSERT INTO disciplina VALUES( null, 'PRSA4', 'Projeto de Sistemas', 80 );
-INSERT INTO disciplina VALUES( null, 'LP2A4', 'Linguagem de Programação II', 80 );
+INSERT INTO disciplina VALUES( 19, 'BD2A4', 'Banco de Dados II', 80 );
+INSERT INTO disciplina VALUES( 20, 'MTPA4', 'Metodologia de Pesquisa', 40 );
+INSERT INTO disciplina VALUES( 21, 'GSIA4', 'Gestão de Serviços Informatizados', 40 );
+INSERT INTO disciplina VALUES( 22, 'IDSA4', 'Implantação de Servidores', 80 );
+INSERT INTO disciplina VALUES( 23, 'PRSA4', 'Projeto de Sistemas', 80 );
+INSERT INTO disciplina VALUES( 24, 'LP2A4', 'Linguagem de Programação II', 80 );
 
 #Matérias do quinto semestre
-INSERT INTO disciplina VALUES( null, 'SIGA5', 'Sistemas de Informações Gerenciais', 80 );
-INSERT INTO disciplina VALUES( null, 'GTIA5', 'Gestão de TI', 80 );
-INSERT INTO disciplina VALUES( null, 'DW1A5', 'Desenvolvimento para Web I', 80 );
-INSERT INTO disciplina VALUES( null, 'ENGA5', 'Engenharia de Software', 80 );
-INSERT INTO disciplina VALUES( null, 'PR1A5', 'Projeto Integrado I', 80 );
+INSERT INTO disciplina VALUES( 25, 'SIGA5', 'Sistemas de Informações Gerenciais', 80 ); #Carlos 4
+INSERT INTO disciplina VALUES( 26, 'GTIA5', 'Gestão de TI', 80 ); #Edgar 6
+INSERT INTO disciplina VALUES( 27, 'DW1A5', 'Desenvolvimento para Web I', 80 ); #Gustavo 2
+INSERT INTO disciplina VALUES( 28, 'ENGA5', 'Engenharia de Software', 80 ); #Fernando 9
+INSERT INTO disciplina VALUES( 29, 'PR1A5', 'Projeto Integrado I', 80 ); #André 3
 
 #Matérias do sexto semestre
-INSERT INTO disciplina VALUES( null, 'DW2A6', 'Desenvolvimento Web II', 80 );
-INSERT INTO disciplina VALUES( null, 'PI2A6', 'Projeto Integrado II', 160 );
-INSERT INTO disciplina VALUES( null, 'TPAA6', 'Tópicos Avançados', 80 );
-INSERT INTO disciplina VALUES( null, 'SEGA6', 'Segurança da Informação', 80 );
+INSERT INTO disciplina VALUES( 30, 'DW2A6', 'Desenvolvimento Web II', 80 ); #Leandro 7
+INSERT INTO disciplina VALUES( 31, 'PI2A6', 'Projeto Integrado II', 160 ); #Daiane 5
+INSERT INTO disciplina VALUES( 32, 'TPAA6', 'Tópicos Avançados', 80 ); #Gustavo 2
+INSERT INTO disciplina VALUES( 33, 'SEGA6', 'Segurança da Informação', 80 ); #Rodolfo 8
 
 #Relacionamentos curso e disciplina
 INSERT INTO rel_disciplina_curso VALUES( null, 1, 1 );
@@ -261,19 +264,41 @@ INSERT INTO situacao VALUES( 3, 'Em Curso'  );
 #Incluindo relacionamento entre turma e o periodo em que a turma pertence
 INSERT INTO rel_turma_periodo VALUES( 1, 1, 3 );
 INSERT INTO rel_turma_periodo VALUES( 2, 2, 3 );
+INSERT INTO rel_turma_periodo VALUES( 3, 3, 3 );
+INSERT INTO rel_turma_periodo VALUES( 4, 4, 3 );
+INSERT INTO rel_turma_periodo VALUES( 5, 5, 3 );
+INSERT INTO rel_turma_periodo VALUES( 6, 6, 3 );
 
 #Criando o relacionamento entre disciplinas e turma
-INSERT INTO rel_turma_disciplina VALUES( 1, 1, 15 );
-INSERT INTO rel_turma_disciplina VALUES( 2, 2, 19 );
-INSERT INTO rel_turma_disciplina VALUES( 3, 3, 27 );
+INSERT INTO rel_turma_disciplina VALUES( 1, 5, 25 );
+INSERT INTO rel_turma_disciplina VALUES( 2, 5, 26 );
+INSERT INTO rel_turma_disciplina VALUES( 3, 5, 27 );
+INSERT INTO rel_turma_disciplina VALUES( 4, 5, 28 );
+INSERT INTO rel_turma_disciplina VALUES( 5, 5, 29 );
+INSERT INTO rel_turma_disciplina VALUES( 6, 6, 30 );
+INSERT INTO rel_turma_disciplina VALUES( 7, 6, 31 );
+INSERT INTO rel_turma_disciplina VALUES( 8, 6, 32 );
+INSERT INTO rel_turma_disciplina VALUES( 9, 6, 33 );
 
-INSERT INTO rel_aluno_turma_disciplina VALUES (null, 1, 1, 90);
-INSERT INTO rel_aluno_turma_disciplina VALUES (null, 1, 2, 90);
-INSERT INTO rel_aluno_turma_disciplina VALUES (null, 1, 3, 75);
+INSERT INTO rel_aluno_turma_disciplina VALUES( 1, 1, 1, 59 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 2, 1, 2, 92 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 3, 1, 3, 91 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 4, 1, 4, 42 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 5, 1, 5, 51 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 6, 1, 6, 68 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 7, 1, 7, 32 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 8, 1, 8, 71 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 9, 1, 9, 75 );
 
-INSERT INTO rel_professor_turma_disciplina VALUES( 1, 2, 1 );
-INSERT INTO rel_professor_turma_disciplina VALUES( 2, 2, 2 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 1, 4, 1 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 2, 6, 2 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 3, 2, 3 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 4, 9, 4 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 5, 3, 5 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 6, 7, 6 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 7, 5, 7 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 8, 2, 8 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 9, 8, 9 );
 
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 1, 1, 1 );
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 2, 2, 1 );
@@ -301,6 +326,12 @@ INSERT INTO rel_avaliacao_turma_aluno VALUES( 10, 10, 1 , 7);
 INSERT INTO rel_avaliacao_turma_aluno VALUES( 11, 11, 1 , 6.5);
 INSERT INTO rel_avaliacao_turma_aluno VALUES( 12, 12, 1 , 9.7);
 
-INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 1, 10);
-INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 2, 5);
-INSERT INTO rel_situacao_aluno_turma VALUES ( null, 1, 1, 3, 8);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 1, 1, 1, 1, 10);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 2, 1, 1, 2, 6);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 3, 2, 1, 3, 5.3);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 4, 1, 1, 4, 7);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 5, 1, 1, 5, 7);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 6, 3, 1, 6, 7.8);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 7, 3, 1, 7, 8.2);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 8, 3, 1, 8, 10);
+INSERT INTO rel_situacao_aluno_turma VALUES ( 9, 3, 1, 9, 6.4);
