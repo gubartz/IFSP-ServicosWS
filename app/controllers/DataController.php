@@ -13,7 +13,8 @@ class DataController extends BaseController {
                                       data_avaliacao - curdate() dias_restantes
                                from   vrel_aluno_turma_nota_final
                                where  id_usuario    = :id_usuario and
-                                      data_avaliacao > curdate()");
+                                      data_avaliacao >= curdate()
+                               order by dias_restantes");
 
     $id_usuario = $this->app->request->post('id_usuario');
     $sth->bindParam(':id_usuario', $id_usuario);
