@@ -28,6 +28,25 @@ Renata Gomes Da Silva
 Ronaldo Rodrigues Martins
 Welliton Gonçalves de Souza');
 
+INSERT INTO telefone VALUES (1  , "Biblioteca"                                       , 19, "3865-8064", "Educacional"   );
+INSERT INTO telefone VALUES (2  , "Coordenadoria da Área de Eletroeletrônica (CAR)"  , 19, "3865-8063", "Educacional"   );
+INSERT INTO telefone VALUES (3  , "Coordenadoria da Área de Informática (CIN)"       , 19, "3865-8065", "Educacional"   );
+INSERT INTO telefone VALUES (4  , "Coordenadoria da Área de Mecânica (CAM)"          , 19, "3865-8063", "Educacional"   );
+INSERT INTO telefone VALUES (5  , "Coordenadoria de Apoio ao Ensino (CAE)"           , 19, "3865-8066", "Educacional"   );
+INSERT INTO telefone VALUES (6  , "Coordenadoria de Extensão (CEX)"                  , 19, "3865-8078", "Educacional"   );
+INSERT INTO telefone VALUES (7  , "Coordenadoria de Pesquisa e Inovação (CPI)"       , 19, "3865-8079", "Educacional"   );
+INSERT INTO telefone VALUES (8  , "Coordenadoria de Registros Escolares (CRE)"       , 19, "3865-8061", "Educacional"   );
+INSERT INTO telefone VALUES (9  , "Coordenadoria Sociopedagógica (CSP)"              , 19, "3865-8069", "Educacional"   );
+INSERT INTO telefone VALUES (10 , "Gerência Educacional (GED)"                       , 19, "3865-8075", "Educacional"   );
+INSERT INTO telefone VALUES (11 , "Contabilidade"                                    , 19, "3865-8076", "Administrativo");
+INSERT INTO telefone VALUES (12 , "Coordenadoria de Administração (CAD)"             , 19, "3865-8073", "Administrativo");
+INSERT INTO telefone VALUES (13 , "Coord.Almoxarifado, Manutenção e Patrimônio (CAP)", 19, "3865-8074", "Administrativo");
+INSERT INTO telefone VALUES (14 , "Coordenadoria de Apoio à Direção"                 , 19, "3865-8071", "Administrativo");
+INSERT INTO telefone VALUES (15 , "Coordenadoria de Gestão de Pessoas (CGP)"         , 19, "3865-8060", "Administrativo");
+INSERT INTO telefone VALUES (16 , "Coordenadoria de Tecnologia da Informação (CTI)"  , 19, "3865-8068", "Administrativo");
+INSERT INTO telefone VALUES (17 , "Diretoria Geral (DRG)"                            , 19, "3865-8072", "Administrativo");
+INSERT INTO telefone VALUES (18 , "Gerência Administrativa (GAD)"                    , 19, "3865-8077", "Administrativo");
+
 INSERT INTO curso VALUES( 1, 'Análise e Desenvolvimento de Sistemas', 'Informática', 6 );
 
 INSERT INTO tipo_usuario VALUES( 1, 'Aluno'     );

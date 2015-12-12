@@ -10,6 +10,14 @@ CREATE TABLE noticia(
   corpo      varchar(10000) NOT NULL
 );
 
+CREATE TABLE telefone(
+	id_telefone int(15) AUTO_INCREMENT PRIMARY KEY,
+	local       varchar(50) NOT NULL,
+	ddd	        int(3) NOT NULL,
+	numero      varchar(9) NOT NULL,
+	area        varchar(50) NOT NULL
+);
+
 #Criando as tabelas base
 CREATE TABLE curso(
   id_curso int(15) AUTO_INCREMENT PRIMARY KEY,
