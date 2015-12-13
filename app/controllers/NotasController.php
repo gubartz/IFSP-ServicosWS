@@ -49,4 +49,26 @@ class NotasController extends BaseController {
 
     helpers::jsonResponse(false, 'results', $sth->fetchAll(PDO::FETCH_OBJ));
   }
+
+  public function listarNotasTurmaDisciplina(){
+
+    $sth = $this->db->prepare("select descricao_avaliacao,
+                                      data_avaliacao,
+                                      nota_avaliacao,
+                                      peso_avaliacao
+                               from vrel_aluno_turma_nota_avaliacao
+                               where id_usuario    = :id_usuario AND
+                                     id_disciplina = :id_disciplina");
+
+    $id_usuario = $this->app->request->post('id_usuario');
+    $sth->bindParam(':id_usuario', $id_usuario);
+
+    $id_disciplina = $this->app->request->post('id_disciplina');
+    $sth->bindParam(':id_disciplina', $id_disciplina);
+
+    $sth->execute();
+
+    helpers::jsonResponse(false, 'results', $sth->fetchAll(PDO::FETCH_OBJ));
+  }
+
 }

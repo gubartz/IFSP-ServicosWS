@@ -12,3 +12,5 @@ $app->post("/usuario/login", "Controllers\UsuarioController:login");
 $app->post("/notas/mediaFinalAlunoTurmaDisciplina", "Controllers\NotasController:mediaFinalAlunoTurmaDisciplina");
 
 $app->post("/notas/listarSemestresDoAluno", "Controllers\NotasController:listarSemestresDoAluno");
+
+$app->post("/notas/listarNotasTurmaDisciplina", "Controllers\NotasController:listarNotasTurmaDisciplina");
