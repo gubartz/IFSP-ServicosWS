@@ -28,24 +28,24 @@ Renata Gomes Da Silva
 Ronaldo Rodrigues Martins
 Welliton Gonçalves de Souza');
 
-INSERT INTO telefone VALUES (1  , "Biblioteca"                                       , 19, "3865-8064", "Educacional"   );
-INSERT INTO telefone VALUES (2  , "Coordenadoria da Área de Eletroeletrônica (CAR)"  , 19, "3865-8063", "Educacional"   );
-INSERT INTO telefone VALUES (3  , "Coordenadoria da Área de Informática (CIN)"       , 19, "3865-8065", "Educacional"   );
-INSERT INTO telefone VALUES (4  , "Coordenadoria da Área de Mecânica (CAM)"          , 19, "3865-8063", "Educacional"   );
-INSERT INTO telefone VALUES (5  , "Coordenadoria de Apoio ao Ensino (CAE)"           , 19, "3865-8066", "Educacional"   );
-INSERT INTO telefone VALUES (6  , "Coordenadoria de Extensão (CEX)"                  , 19, "3865-8078", "Educacional"   );
-INSERT INTO telefone VALUES (7  , "Coordenadoria de Pesquisa e Inovação (CPI)"       , 19, "3865-8079", "Educacional"   );
-INSERT INTO telefone VALUES (8  , "Coordenadoria de Registros Escolares (CRE)"       , 19, "3865-8061", "Educacional"   );
-INSERT INTO telefone VALUES (9  , "Coordenadoria Sociopedagógica (CSP)"              , 19, "3865-8069", "Educacional"   );
-INSERT INTO telefone VALUES (10 , "Gerência Educacional (GED)"                       , 19, "3865-8075", "Educacional"   );
-INSERT INTO telefone VALUES (11 , "Contabilidade"                                    , 19, "3865-8076", "Administrativo");
-INSERT INTO telefone VALUES (12 , "Coordenadoria de Administração (CAD)"             , 19, "3865-8073", "Administrativo");
-INSERT INTO telefone VALUES (13 , "Coord.Almoxarifado, Manutenção e Patrimônio (CAP)", 19, "3865-8074", "Administrativo");
-INSERT INTO telefone VALUES (14 , "Coordenadoria de Apoio à Direção"                 , 19, "3865-8071", "Administrativo");
-INSERT INTO telefone VALUES (15 , "Coordenadoria de Gestão de Pessoas (CGP)"         , 19, "3865-8060", "Administrativo");
-INSERT INTO telefone VALUES (16 , "Coordenadoria de Tecnologia da Informação (CTI)"  , 19, "3865-8068", "Administrativo");
-INSERT INTO telefone VALUES (17 , "Diretoria Geral (DRG)"                            , 19, "3865-8072", "Administrativo");
-INSERT INTO telefone VALUES (18 , "Gerência Administrativa (GAD)"                    , 19, "3865-8077", "Administrativo");
+INSERT INTO telefone VALUES ( 1  , "Biblioteca"                                       , 19, "3865-8064", "Educacional"    );
+INSERT INTO telefone VALUES ( 2  , "Coordenadoria da Área de Eletroeletrônica (CAR)"  , 19, "3865-8063", "Educacional"    );
+INSERT INTO telefone VALUES ( 3  , "Coordenadoria da Área de Informática (CIN)"       , 19, "3865-8065", "Educacional"    );
+INSERT INTO telefone VALUES ( 4  , "Coordenadoria da Área de Mecânica (CAM)"          , 19, "3865-8063", "Educacional"    );
+INSERT INTO telefone VALUES ( 5  , "Coordenadoria de Apoio ao Ensino (CAE)"           , 19, "3865-8066", "Educacional"    );
+INSERT INTO telefone VALUES ( 6  , "Coordenadoria de Extensão (CEX)"                  , 19, "3865-8078", "Educacional"    );
+INSERT INTO telefone VALUES ( 7  , "Coordenadoria de Pesquisa e Inovação (CPI)"       , 19, "3865-8079", "Educacional"    );
+INSERT INTO telefone VALUES ( 8  , "Coordenadoria de Registros Escolares (CRE)"       , 19, "3865-8061", "Educacional"    );
+INSERT INTO telefone VALUES ( 9  , "Coordenadoria Sociopedagógica (CSP)"              , 19, "3865-8069", "Educacional"    );
+INSERT INTO telefone VALUES ( 10 , "Gerência Educacional (GED)"                       , 19, "3865-8075", "Educacional"    );
+INSERT INTO telefone VALUES ( 11 , "Contabilidade"                                    , 19, "3865-8076", "Administrativo" );
+INSERT INTO telefone VALUES ( 12 , "Coordenadoria de Administração (CAD)"             , 19, "3865-8073", "Administrativo" );
+INSERT INTO telefone VALUES ( 13 , "Coord.Almoxarifado, Manutenção e Patrimônio (CAP)", 19, "3865-8074", "Administrativo" );
+INSERT INTO telefone VALUES ( 14 , "Coordenadoria de Apoio à Direção"                 , 19, "3865-8071", "Administrativo" );
+INSERT INTO telefone VALUES ( 15 , "Coordenadoria de Gestão de Pessoas (CGP)"         , 19, "3865-8060", "Administrativo" );
+INSERT INTO telefone VALUES ( 16 , "Coordenadoria de Tecnologia da Informação (CTI)"  , 19, "3865-8068", "Administrativo" );
+INSERT INTO telefone VALUES ( 17 , "Diretoria Geral (DRG)"                            , 19, "3865-8072", "Administrativo" );
+INSERT INTO telefone VALUES ( 18 , "Gerência Administrativa (GAD)"                    , 19, "3865-8077", "Administrativo" );
 
 INSERT INTO curso VALUES( 1, 'Análise e Desenvolvimento de Sistemas', 'Informática', 6 );
 
@@ -169,6 +169,19 @@ INSERT INTO usuario VALUES( 9, #id_usuario
                             '123456', 
                             null);
 
+INSERT INTO usuario VALUES( 10, #id_usuario
+                            1, #id_tipo_usuario
+                            'João da Silva',
+                            '22.065.604-9',
+                            '545.810.012-35',
+                            '13120-236',
+                            '(19) 3875-1264',
+                            '(19) 98433-7122',
+                            'joao_silva@gmail.com',
+                            '132017-4',
+                            '123456', 
+                            null);
+
 #Criação de Turmas
 INSERT INTO turma VALUES( 1, 2013, 01 );
 INSERT INTO turma VALUES( 2, 2013, 02 );
@@ -176,18 +189,19 @@ INSERT INTO turma VALUES( 3, 2014, 01 );
 INSERT INTO turma VALUES( 4, 2014, 02 );
 INSERT INTO turma VALUES( 5, 2015, 01 );
 INSERT INTO turma VALUES( 6, 2015, 02 );
+INSERT INTO turma VALUES( 7, 2016, 01 );
 
-INSERT INTO periodo VALUES( 1, "Matutino" );
+INSERT INTO periodo VALUES( 1, "Matutino"   );
 INSERT INTO periodo VALUES( 2, "Vespertino" );
-INSERT INTO periodo VALUES( 3, "Noturno" );
+INSERT INTO periodo VALUES( 3, "Noturno"    );
 
 #Matérias do primeiro semestre
-INSERT INTO disciplina VALUES( 1, 'ADCA1', 'Arquitetura de Computadores', 80 );
-INSERT INTO disciplina VALUES( 2, 'LOPA1', 'Lógica de Programação', 120 );
-INSERT INTO disciplina VALUES( 3, 'COEA1', 'Comunicação e Expressão', 40 );
-INSERT INTO disciplina VALUES( 4, 'INGA1', 'Inglês técnico', 40 );
-INSERT INTO disciplina VALUES( 5, 'MD1A1', 'Matemática Discreta I', 40 );
-INSERT INTO disciplina VALUES( 6, 'HCTA1', 'História da Ciência e da Tecnologia', 40 );
+INSERT INTO disciplina VALUES( 1, 'ADCA1', 'Arquitetura de Computadores', 80 ); #Edgar 6
+INSERT INTO disciplina VALUES( 2, 'LOPA1', 'Lógica de Programação', 120 ); #André 3 
+INSERT INTO disciplina VALUES( 3, 'COEA1', 'Comunicação e Expressão', 40 ); #Daiane 5
+INSERT INTO disciplina VALUES( 4, 'INGA1', 'Inglês técnico', 40 ); #Gustavo 2 
+INSERT INTO disciplina VALUES( 5, 'MD1A1', 'Matemática Discreta I', 40 ); #Rodolfo 8
+INSERT INTO disciplina VALUES( 6, 'HCTA1', 'História da Ciência e da Tecnologia', 40 ); #Fernando 9
 
 #Matérias do segundo semestre
 INSERT INTO disciplina VALUES( 7, 'MD1A2', 'Matemática Discreta II', 40 );
@@ -227,15 +241,15 @@ INSERT INTO disciplina VALUES( 32, 'TPAA6', 'Tópicos Avançados', 80 ); #Gustav
 INSERT INTO disciplina VALUES( 33, 'SEGA6', 'Segurança da Informação', 80 ); #Rodolfo 8
 
 #Relacionamentos curso e disciplina
-INSERT INTO rel_disciplina_curso VALUES( null, 1, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 2, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 3, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 4, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 5, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 6, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 7, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 8, 1 );
-INSERT INTO rel_disciplina_curso VALUES( null, 9, 1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 1,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 2,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 3,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 4,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 5,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 6,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 7,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 8,  1 );
+INSERT INTO rel_disciplina_curso VALUES( null, 9,  1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 10, 1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 11, 1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 12, 1 );
@@ -261,19 +275,33 @@ INSERT INTO rel_disciplina_curso VALUES( null, 31, 1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 32, 1 );
 INSERT INTO rel_disciplina_curso VALUES( null, 33, 1 );
 
-#Avaliações
+#Avaliações Guilherme Lima Pereira
 INSERT INTO avaliacao VALUES( 1, '2015-03-26', 'Prova 1', 0.35 );
 INSERT INTO avaliacao VALUES( 2, '2015-06-29', 'Prova 2', 0.35 );
 INSERT INTO avaliacao VALUES( 3, '2015-04-15', 'Trabalho 1', 0.15 );
-INSERT INTO avaliacao VALUES( 4, '2015-06-21', 'Trabalho 2', 0.15 );
+INSERT INTO avaliacao VALUES( 4, '2016-01-22', 'Trabalho 2', 0.15 );
 INSERT INTO avaliacao VALUES( 5, '2015-02-27', 'Prova 1', 0.35 );
-INSERT INTO avaliacao VALUES( 6, '2015-07-23', 'Prova 2', 0.35 );
+INSERT INTO avaliacao VALUES( 6, '2015-12-23', 'Prova 2', 0.35 );
 INSERT INTO avaliacao VALUES( 7, '2015-03-10', 'Trabalho 1', 0.15 );
-INSERT INTO avaliacao VALUES( 8, '2015-05-03', 'Trabalho 2', 0.15 );
+INSERT INTO avaliacao VALUES( 8, '2015-12-15', 'Trabalho 2', 0.15 );
 INSERT INTO avaliacao VALUES( 9, '2015-02-27', 'Prova 1', 0.23 );
 INSERT INTO avaliacao VALUES( 10, '2015-07-23', 'Prova 2', 0.23 );
 INSERT INTO avaliacao VALUES( 11, '2015-07-23', 'Prova 3', 0.23 );
 INSERT INTO avaliacao VALUES( 12, '2015-12-10', 'Seminário', 0.31 );
+
+#Avaliações João da Silva
+INSERT INTO avaliacao VALUES( 13, '2016-02-26', 'Prova 1', 0.35 );
+INSERT INTO avaliacao VALUES( 14, '2016-02-29', 'Prova 2', 0.35 );
+INSERT INTO avaliacao VALUES( 15, '2016-02-15', 'Seminário 1', 0.15 );
+INSERT INTO avaliacao VALUES( 16, '2016-03-22', 'Seminário 2', 0.15 );
+INSERT INTO avaliacao VALUES( 17, '2016-04-27', 'Prova 1', 0.35 );
+INSERT INTO avaliacao VALUES( 18, '2016-04-23', 'Trabalho Escrito', 0.35 );
+INSERT INTO avaliacao VALUES( 19, '2016-05-10', 'Trabalho Apresentado', 0.15 );
+INSERT INTO avaliacao VALUES( 20, '2016-05-15', 'Pesquisa', 0.15 );
+INSERT INTO avaliacao VALUES( 21, '2016-05-27', 'Prova 1', 0.23 );
+INSERT INTO avaliacao VALUES( 22, '2016-05-23', 'Prova 2', 0.23 );
+INSERT INTO avaliacao VALUES( 23, '2016-05-23', 'Resumo Artigo', 0.23 );
+INSERT INTO avaliacao VALUES( 24, '2016-06-10', 'Seminário', 0.31 );
 
 #Situações
 INSERT INTO situacao VALUES( 1, 'Aprovado'  );
@@ -281,6 +309,7 @@ INSERT INTO situacao VALUES( 2, 'Reprovado' );
 INSERT INTO situacao VALUES( 3, 'Em Curso'  );
 
 #Incluindo relacionamento entre turma e o periodo em que a turma pertence
+#Guilherme Lima Pereira
 INSERT INTO rel_turma_periodo VALUES( 1, 1, 3 );
 INSERT INTO rel_turma_periodo VALUES( 2, 2, 3 );
 INSERT INTO rel_turma_periodo VALUES( 3, 3, 3 );
@@ -288,7 +317,11 @@ INSERT INTO rel_turma_periodo VALUES( 4, 4, 3 );
 INSERT INTO rel_turma_periodo VALUES( 5, 5, 3 );
 INSERT INTO rel_turma_periodo VALUES( 6, 6, 3 );
 
+#João da Silva
+INSERT INTO rel_turma_periodo VALUES( 7, 7, 1 );
+
 #Criando o relacionamento entre disciplinas e turma
+#Guilherme Lima Pereira
 INSERT INTO rel_turma_disciplina VALUES( 1, 5, 25 );
 INSERT INTO rel_turma_disciplina VALUES( 2, 5, 26 );
 INSERT INTO rel_turma_disciplina VALUES( 3, 5, 27 );
@@ -299,6 +332,15 @@ INSERT INTO rel_turma_disciplina VALUES( 7, 6, 31 );
 INSERT INTO rel_turma_disciplina VALUES( 8, 6, 32 );
 INSERT INTO rel_turma_disciplina VALUES( 9, 6, 33 );
 
+#João da Silva
+INSERT INTO rel_turma_disciplina VALUES( 10, 7, 1 );
+INSERT INTO rel_turma_disciplina VALUES( 11, 7, 2 );
+INSERT INTO rel_turma_disciplina VALUES( 12, 7, 3 );
+INSERT INTO rel_turma_disciplina VALUES( 13, 7, 4 );
+INSERT INTO rel_turma_disciplina VALUES( 14, 7, 5 );
+INSERT INTO rel_turma_disciplina VALUES( 15, 7, 6 );
+
+#Guilherme Lima Pereira
 INSERT INTO rel_aluno_turma_disciplina VALUES( 1, 1, 1, 59 );
 INSERT INTO rel_aluno_turma_disciplina VALUES( 2, 1, 2, 92 );
 INSERT INTO rel_aluno_turma_disciplina VALUES( 3, 1, 3, 91 );
@@ -309,6 +351,15 @@ INSERT INTO rel_aluno_turma_disciplina VALUES( 7, 1, 7, 32 );
 INSERT INTO rel_aluno_turma_disciplina VALUES( 8, 1, 8, 71 );
 INSERT INTO rel_aluno_turma_disciplina VALUES( 9, 1, 9, 75 );
 
+#João da Silva
+INSERT INTO rel_aluno_turma_disciplina VALUES( 10, 10, 10, 47  );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 11, 10, 11, 23  );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 12, 10, 12, 98  );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 13, 10, 13, 100 );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 14, 10, 14, 50  );
+INSERT INTO rel_aluno_turma_disciplina VALUES( 15, 10, 15, 74  );
+
+#Guilherme Lima Pereira
 INSERT INTO rel_professor_turma_disciplina VALUES( 1, 4, 1 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 2, 6, 2 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 3, 2, 3 );
@@ -319,38 +370,85 @@ INSERT INTO rel_professor_turma_disciplina VALUES( 7, 5, 7 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 8, 2, 8 );
 INSERT INTO rel_professor_turma_disciplina VALUES( 9, 8, 9 );
 
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 1, 1, 1 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 2, 2, 1 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 3, 3, 1 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 4, 4, 1 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 5, 5, 2 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 6, 6, 2 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 7, 7, 2 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 8, 8, 2 );
-INSERT INTO rel_avaliacao_turma_disciplina VALUES( 9, 9, 3 );
+#João da Silva
+INSERT INTO rel_professor_turma_disciplina VALUES( 10, 6, 10 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 11, 3, 11 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 12, 5, 12 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 13, 2, 13 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 14, 8, 14 );
+INSERT INTO rel_professor_turma_disciplina VALUES( 15, 2, 15 );
+
+#Guilherme Lima Pereira
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 1,  1,  1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 2,  2,  1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 3,  3,  1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 4,  4,  1 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 5,  5,  2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 6,  6,  2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 7,  7,  2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 8,  8,  2 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 9,  9,  3 );
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 10, 10, 3 );
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 11, 11, 3 );
 INSERT INTO rel_avaliacao_turma_disciplina VALUES( 12, 12, 3 );
 
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 1, 1, 1 , 6);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 2, 2, 1 , 6);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 3, 3, 1 , 10);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 4, 4, 1 , 10);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 5, 5, 1 , 9);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 6, 6, 1 , 7);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 7, 7, 1 , 0);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 8, 8, 1 , 8.5);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 9, 9, 1 , 7);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 10, 10, 1 , 7);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 11, 11, 1 , 6.5);
-INSERT INTO rel_avaliacao_turma_aluno VALUES( 12, 12, 1 , 9.7);
+#João da Silva
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 13, 13, 10 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 14, 14, 10 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 15, 15, 11 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 16, 16, 11 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 17, 17, 12 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 18, 18, 12 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 19, 19, 13 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 20, 20, 13 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 21, 21, 14 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 22, 22, 14 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 23, 23, 15 );
+INSERT INTO rel_avaliacao_turma_disciplina VALUES( 24, 24, 15 );
 
-INSERT INTO rel_situacao_aluno_turma VALUES ( 1, 1, 1, 1, 10);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 2, 1, 1, 2, 6);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 3, 2, 1, 3, 5.3);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 4, 1, 1, 4, 7);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 5, 1, 1, 5, 7);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 6, 3, 1, 6, 7.8);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 7, 3, 1, 7, 8.2);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 8, 3, 1, 8, 10);
-INSERT INTO rel_situacao_aluno_turma VALUES ( 9, 3, 1, 9, 6.4);
+#Guilherme Lima Pereira
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 1,  1,  1 , 6   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 2,  2,  1 , 6   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 3,  3,  1 , 10  );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 4,  4,  1 , 10  );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 5,  5,  1 , 9   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 6,  6,  1 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 7,  7,  1 , 0   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 8,  8,  1 , 8.5 );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 9,  9,  1 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 10, 10, 1 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 11, 11, 1 , 6.5 );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 12, 12, 1 , 9.7 );
+
+#João da Silva
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 13,  13,  10 , 6   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 14,  14,  10 , 6   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 15,  15,  10 , 10  );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 16,  16,  10 , 10  );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 17,  17,  10 , 9   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 18,  18,  10 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 19,  19,  10 , 0   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 20,  20,  10 , 8.5 );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 21,  21,  10 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 22,  22,  10 , 7   );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 23,  23,  10 , 6.5 );
+INSERT INTO rel_avaliacao_turma_aluno VALUES( 24,  24,  10 , 9.7 );
+
+#Guilherme Lima Pereira
+INSERT INTO rel_situacao_aluno_turma VALUES ( 1, 1, 1, 1, 10  );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 2, 1, 1, 2, 6   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 3, 2, 1, 3, 5.3 );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 4, 1, 1, 4, 7   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 5, 1, 1, 5, 7   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 6, 3, 1, 6, 7.8 );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 7, 3, 1, 7, 8.2 );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 8, 3, 1, 8, 10  );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 9, 3, 1, 9, 6.4 );
+
+#João da Silva
+INSERT INTO rel_situacao_aluno_turma VALUES ( 10, 3, 10, 10, 6   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 11, 3, 10, 11, 6   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 12, 3, 10, 12, 5.3 );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 13, 3, 10, 13, 4.5 );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 14, 3, 10, 14, 7   );
+INSERT INTO rel_situacao_aluno_turma VALUES ( 15, 3, 10, 15, 2.9 );

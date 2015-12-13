@@ -53,7 +53,7 @@ class NotasController extends BaseController {
   public function listarNotasTurmaDisciplina(){
 
     $sth = $this->db->prepare("select descricao_avaliacao,
-                                      data_avaliacao,
+                                      date_format(data_avaliacao,'%d/%m/%Y') data_avaliacao,
                                       nota_avaliacao,
                                       peso_avaliacao
                                from vrel_aluno_turma_nota_avaliacao

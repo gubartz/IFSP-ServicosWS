@@ -10,7 +10,7 @@ class DataController extends BaseController {
     $sth = $this->db->prepare("select descricao_disciplina,
                                       descricao_avaliacao,
                                       date_format(data_avaliacao,'%d/%m/%Y') data_avaliacao,
-                                      data_avaliacao - curdate() dias_restantes
+                                      datediff(data_avaliacao, curdate())  dias_restantes
                                from   vrel_aluno_turma_nota_final
                                where  id_usuario    = :id_usuario and
                                       data_avaliacao >= curdate()
